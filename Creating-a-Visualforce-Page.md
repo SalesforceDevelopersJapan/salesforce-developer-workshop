@@ -8,7 +8,7 @@ In this module, you create a Visualforce page to provide a custom user interface
 
 1. In the **Developer Console**, select **File** > **New** > **Visualforce Page**, specify **SpeakerForm** as the page name and click **OK**
 
-1. Implement SpeakerForm as follows:
+1. ステップ 1:Visualforce ページ「SpeakerForm」を作成する:
 
     ```
     <apex:page standardController="Speaker__c">
@@ -27,16 +27,16 @@ In this module, you create a Visualforce page to provide a custom user interface
     </apex:page>
     ```
 
-1. Save the file
+1. ファイルを保存します。
 
-1. Test the Visualforce page. There are several ways you can test your Visualforce page. For example, you can:
-  - Click the **Preview** button in the file editor for SpeakerForm in the developer console (upper left corner)
-  - Directly access the Visualforce page by appending **/apex/SpeakerForm** to your instance's domain name in the browser. For example, access: [https://na17.salesforce.com/apex/SpeakerForm](https://na17.salesforce.com/apex/SpeakerForm) (make sure you use your own Salesforce domain name)
+1. 作成したVisualforceページをテストします。複数のテスト方法がありますが、たとえば、次のような手順で確認が可能です:
+  - 開発者コンソールで、SpeakerForm のエディタ画面を開き、**Preview** ボタンをクリックします(画面の 左上)
+  - ブラウザで、インスタンスのドメイン名に/apex/SpeakerForm を追加し、Visualforce ページに直接アク セスします。たとえば、「[https://na17.salesforce.com/apex/SpeakerForm](https://na17.salesforce.com/apex/SpeakerForm)」のように指定します (「/apex/SpeakerForm」の前に、自分の Salesforce 組織のドメイン名を指定)
 
 
-## Step 2: Set SpeakerForm as the Default Form
+## ステップ 2:SpeakerForm をデフォルトのフォームに設定する
 
-In this step, you set the **SpeakerForm** page as the default form for creating and editing speakers:
+このステップでは、**SpeakerForm**ページを、Speaker レコードの新規作成や編集に使用するデフォルトのフォームに設定します。:
 
 1. In **Setup**, select **Build** > **Create** > **Objects** and click the **Speaker** link
 

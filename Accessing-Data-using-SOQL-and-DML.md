@@ -1,38 +1,36 @@
 ---
 layout: module
-title: Module 5&#58; Accessing Data using SOQL and DML
+title: モジュール 5&#58; SOQL と DML を使用したデータへのアクセス
 ---
-SOQL is the Salesforce Object Query Language. It is similar to SQL. You use SOQL to retrieve data in Salesforce.
-You use the Salesforce Data Manipulation Language (DML) to insert, update and delete data. In this module, you use the Developer Console to familiarize yourself with SOQL
-and DML. In the next modules, you'll use SOQL and DML statements in Apex classes and triggers.
+「SOQL」とは、「Salesforce Object Query Language」の略です。これは SQL に似た言語で、Salesforce 内でのデータの取得に使われます。また、「DML」とは、「Data Manipulation Language」の略で、Salesforce の DML は、データの挿入、更新、削除に使われます。このモジュールでは、SOQL と DML を知っていただくため、開発者コンソールでまず使ってみます。次のモジュールでは、Apex クラスや Apex トリガで、これらを実際に使っていきます。
 
-## Step 1: Execute SOQL statements
+## ステップ 1: SOQL ステートメントを実行する
 
-1. In the Developer Console, click the **Query Editor** tab at the bottom of the window
+1. 開発者コンソールで、ウィンドウの下部にある **Query Editor** タブをクリックします。
 
     ![](images/queryeditor.jpg)
 
-1. Enter the following SOQL statement and click the **Execute** button to retrieve conference sessions:
+1. 次のSOQLステートメントを入力し、**Execute** ボタンをクリックすると、カンファレンスのセッションを取得できます:
 
     ```
     SELECT Id, Name, Session_Date__c, Level__c FROM Session__c
     ```
 
-1. Execute the following statement to retrieve the beginner sessions (assuming you created any):  
+1. 次のステートメントを入力し、**Execute** ボタンをクリックすると、Levelが **Beginner** 向けのセッションを取得できます(前のステップで「Beginner」レベルのレコードを作成していることが前提):  
 
     ```
     SELECT Id, Name, Session_Date__c, Level__c FROM Session__c
         WHERE Level__c = 'Beginner'
     ```
 
-1. Execute the following statement to retrieve a list of speakers ordered by first name and last name:
+1. 次のステートメントを入力し、 **Execute** ボタンをクリックすると、スピーカーの名前順のリストを取得できます:
 
     ```
     SELECT Id, First_Name__c, Last_Name__c, Email__c FROM Speaker__c
         ORDER BY First_Name__c, Last_Name__c
     ```
 
-1. Execute the following statement to retrieve a list of sessions assigned to speakers with related session and speaker information:
+1. 次のステートメントを入力し、 **Execute** ボタンをクリックすると、スピーカーに割り当てられたセッションのリストを、セッション、スピーカーの情報と合わせて取得できます:
 
     ```
     SELECT Session__r.Name,
@@ -44,20 +42,21 @@ and DML. In the next modules, you'll use SOQL and DML statements in Apex classes
     ```
 
 
-## Step 2: Execute DML Statements
+## ステップ 2: DML ステートメントを実行する
 
 
-1. In the Developer Console, click **Debug** > **Open Execute Anonymous Window** and execute the following statements to create a session:
+1. 開発者コンソールで、**Debug** > **Open Execute Anonymous Window** の順にクリックし、次のステートメントを実
+行してセッションを作成します。:
 
     ```
     Session__c session=new Session__c(Name='Advanced Apex', Level__c='Advanced');
     insert session;
     ```
 
-    You can execute a SOQL statement in the Query Editor as described in step 1 to make sure the session was created.
+    Query Editor を使い、ステップ 1 の説明に従って SOQL ステートメントを実行すると、上記セッションが作成されたことを確認できます。
 
 
-2. Execute the following statements to update a session:
+2. セッションの内容を更新するには、次のステートメントを実行します:
 
     ```
     Session__c session = [SELECT Id FROM Session__c WHERE NAME='Advanced Apex'];
@@ -65,17 +64,17 @@ and DML. In the next modules, you'll use SOQL and DML statements in Apex classes
     update session;
     ```
 
-    Again, you can execute a SOQL statement in the Query Editor to make sure the session was updated as expected.
+    先ほどと同様、Query Editor で SOQL ステートメントを実行すると、セッションが適切に更新されたことを確認できます。
 
 
-## Additional Resources
+## 関連リソース
 
-- [SOQL and SOSL Reference](http://www.salesforce.com/us/developer/docs/soql_sosl/index_Left.htm)
+- [SOQL 及び SOSL に関するリファレンス](https://developer.salesforce.com/docs/atlas.ja-jp.soql_sosl.meta/soql_sosl/)
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-an-Apex-Class.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Creating-Triggers.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-an-Apex-Class.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Creating-Triggers.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

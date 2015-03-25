@@ -1,18 +1,19 @@
 ---
 layout: module
-title: Module 8&#58; Creating a Controller Extension
+title: モジュール 8&#58; コントローラ拡張機能の作成
 ---
-In this module, you enhance the Visualforce page you built in module 7: you create a controller extension that allows users to upload speaker pictures.
+
+このモジュールでは、モジュール 7 で作成した Visualforce ページの機能を強化します。コントローラ拡張機能を作成して、スピーカーの写真をアップロードできるようにします
 
 ![](images/upload.jpg)
 
-## Step 1: Create a Controller Extension
+## ステップ 1: コントローラ拡張機能を作成する
 
 In this step, you experiment with the mechanics of a controller extension. You create a simple controller extension that exposes an **increment()** method and a **counter** property. When you click the Increment button in the SpeakerForm page, the extension's increment() method increments the counter property whose new value is automatically displayed in the page. In the next step, you make SpeakerControllerExtension a lot more useful by adding code to support the upload of speaker pictures.
 
-1. In the Developer Console, select **File** > **New** > **Apex Class**, specify **SpeakerControllerExtension** as the class name and click **OK**
+1. 開発者コンソールで、 **File** > **New** > **ApexClass** の順にクリックし、クラス名に **SpeakerControllerExtension** と入力し、 **OK** をクリックします
 
-1. Implement the class as follows:
+1. 次のようにクラスを実装します:
 
     ```
     public class SpeakerControllerExtension {
@@ -34,9 +35,9 @@ In this step, you experiment with the mechanics of a controller extension. You c
 
     }
     ```
-1. Save the file
+1. ファイルを保存します
 
-1. In the Developer Console, open the SpeakerForm page, and add the controller extension to the page definition:
+1. 開発者コンソールでSpeakerFormのページを開き、ページの定義にコントローラ拡張機能を追加します:
 
     ```
     <apex:page standardController="Speaker__c" extensions="SpeakerControllerExtension">
@@ -54,42 +55,42 @@ In this step, you experiment with the mechanics of a controller extension. You c
     {!counter}
     ```
 
-1. Save the file
+1. ファイルを保存します
 
-1. Test the application
-  - Click the Speakers tab, select a speaker, and click **Edit**
-  - Click the Increment button several times and watch the counter value displayed at the bottom of the page
-
-
-## Step 2: Extend the Data Model
-
-In this step, you add two fields to the Speaker object: **Picture_Path** to store the location of the picture on the server, and **Picture**, a Formula field used to display the image in the Visualforce page.
-
-1. In **Setup**, select **Build** > **Create** > **Objects**, and click the **Speaker** link
-
-1. In the **Custom Fields & Relationships** section, click **New**, and create a **Picture_Path** field defined as follows:
-  - Data Type: **Text**
-  - Field Label: **Picture Path**
-  - Length: **255**
-  - Field Name: **Picture_Path**
-
-    Click **Next**, **Next**, **Save & New**
-
-1. Create a **Picture** field defined as follows:
-  - Data Type: **Formula**
-  - Field Label: **Picture**
-  - Field Name: **Picture**
-  - Formula Return Type: **Text**
-  - Formula: **IMAGE(Picture&#95;Path__c, '')**
-  
-        > Make sure you use <strong>two single quotes</strong> and NOT a double quote.
-
-    Click **Next**, **Next**, **Save**
+1. アプリケーションをテストします
+  - Speakers タブをクリックし、speakerを選択し、 **編集** をクリックします
+  - Incrementボタンを何回か押下し、ページ下部のカウンターの値が表示されることを確認します。
 
 
-## Step 3: Add Image Upload Support
+## Step 2: データモデルを拡張する
 
-1. In the Developer Console, open **SpeakerControllerExtension**
+このステップでは、Speaker オブジェクトに 2 つの項目を追加します。1 つ目は[Picture_Path]で、サーバ上の画像の場所を格納します。2 つ目は **Picture** で、これは、Visualforce ページに画像を表示するために使われる数式項目です。
+
+1. **設定** で **ビルド** > **作成** > **オブジェクト** の順に選択し、 **Speaker** リンクをクリックします
+
+1. **カスタム項目＆リレーション** セクションで **新規** をクリックし、 **Picture_Path** を次のように定義します:
+  - データ型：**テキスト**
+  - 項目の表示ラベル：**Picture Path**
+  - 文字数：**255**
+  - 項目名：**Picture_Path**
+
+  **次へ** 、 **次へ** 、 **保存＆新規** の順にクリックします
+
+1. **Picture**項目を次のように定義します:
+  - データ型：**数式**
+  - 項目の表示ラベル：**Picture**
+  - 項目名：**Picture**
+  - 数式の戻り値のデータ型：**テキスト**
+  - 数式: **IMAGE(Picture&#95;Path__c, '')**
+
+        > 数式の指定では、二重引用符ではなく<strong>2つの単一引用符</strong>を使用してください。
+
+  **次へ** 、 **次へ** 、 **保存** の順にクリックします。
+
+
+## ステップ 3: 画像のアップロード機能を追加する
+
+1. 開発者コンソールにて **SpeakerControllerExtension** を開きます。
 
 1. Remove the counter variable declaration, the counter variable initialization in the class constructor, and the increment() method definition
 
@@ -126,27 +127,27 @@ In this step, you add two fields to the Speaker object: **Picture_Path** to stor
     }
     ```
 
-1. Save the file
+1. ファイルを保存します
 
-1. In the Developer Console, open the SpeakerForm page
+1. 開発者コンソールでSpeakerFormのページを開ます
 
 1. Remove the Increment button
 
-1. Add an inputFile (right after the Email inputField):
+1. inputFileを追加します（EmailのinputFieldの直後）:
 
     ```
     <apex:inputFile value="{!picture}" accept="image/*" />
     ```
 
-1. Instead of the counter, display the potential errorMessage right after &lt;/apex:pageBlock>
+1. カウンターの代わりに、 &lt;/apex:pageBlock>の直後にエラーメッセージを表示するようにします 。
 
     ```
     {!errorMessage}
     ```
 
-1. Save the file
+1. ファイルを保存します。
 
-## Step 4: Test the Application
+## ステップ 4: アプリケーションをテストする
 
 1. Click the Speakers tab
 
