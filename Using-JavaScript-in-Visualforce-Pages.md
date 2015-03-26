@@ -1,54 +1,53 @@
 ---
 layout: module
-title: Module 9&#58; Using JavaScript in Visualforce Pages
+title: VisualforceページでのJavaScriptの使用
 ---
-In this module, you create a custom controller with a method that returns a list of conference hotels. You create a Visualforce page that invokes that method using JavaScript Remoting, and uses the Google Maps SDK to display the hotels on a map.
+このモジュールでは、カンファレンスのホテルのリストを返すメソッドを含んだカスタムコントローラを作成します。続いて、JavaScript Remotingでそのメソッドを呼び出すVisualforceページを作成し、Google Maps SDKを使ってマップにホテルを表示させます。
 
 ![](images/hotelmap.jpg)
 
-## Step 1: Create the Hotel Object
+## ステップ 1: オブジェクト**ホテル** を作成する
 
-1. In **Setup**, select **Build** > **Create** > **Objects**
+1. **設定** で、 **ビルド** > **作成** > **オブジェクト** の順に選択します
 
-2. Click **New Custom Object**, and define the Hotel Object as follows:
-  - Label: **Hotel**
-  - Plural Label: **Hotels**
-  - Object Name: **Hotel**
-  - Record Name: **Hotel Name**
-  - Data Type: **Text**
+2. **新規カスタムオブジェクト** をクリックし、次のように定義します:
+  - 表示ラベル： **Hotel**
+  - オブジェクト名： **ホテル**
+  - レコード名: **ホテル名**
+  - データ型： **テキスト**
 
-3. Click **Save**
+3. **保存** をクリックします
 
-4. In the **Custom Fields & Relationships** section, click **New**, and create a **Location** field defined as follows:
-    - Data Type: **Geolocation**
-    - Field Label: **Location**
-    - Latitude and Longitude Display Notation: **Decimal**
-    - Decimal Places: **7**
-    - Field Name: **Location**
+4. **カスタム項目＆リレーション** セクションで **新規** をクリックし、次のようにして **位置情報** という項目を作成します:
+    - データ型： **地理位置情報**
+    - 項目の表示ラベル: **位置情報**
+    - 緯度および経度表示の表記法： **小数**
+    - 小数点の位置: **7**
+    - 項目名: **Location**
 
-    Click **Next**, **Next**, **Save**
+    **次へ** 、 **次へ** 、 **保存** の順にクリックします。
 
-5. Create a Tab for the Hotel object
-  - In **Setup**, select **Build** > **Create** > **Tabs**
-  - In the **Custom Object Tabs** section, click **New**
-  - Select the **Hotel** object and **Building** as the Tab Style Icon
-  - Click **Next**, **Next**
-  - Uncheck the **Include Tab** checkbox, check the **Conference** checkbox, and click **Save**
+5. ホテルオブジェクトのタブを作成します
+  - **設定** で、 **ビルド** > **作成** > **タブ** の順にクリックします
+  - **カスタムオブジェクトタブ** セクションで、 **新規** をクリックします
+  - **Hotel** オブジェクトを選択して、タブスタイルのアイコンとして **ビル** を選択し、 **次へ** 、 **次へ** の順にクリックします。
+  - **タブを含める** チェックボックスをオフにしてから、 **カンファレンス管理** チェックボックスをオンにし、**保存** をクリックします
 
     ![](images/hotel-tab.jpg)
 
-6. Enter a couple of hotels with location information. For example:
-  - Marriott Marquis (37.785143 -122.403405)
-  - Hilton Union Square (37.786164 -122.410137)
-  - Hyatt (37.794157 -122.396311)
+6. **Hotel** タブに移動し、ホテルのレコードを何件か入力します。その際、次のように、緯度（Latitude）と
+経度（Longitude）の情報も指定します:
+  - マリオットホテル(37.785143 -122.403405)
+  - ヒルトンユニオンスクエア (37.786164 -122.410137)
+  - ハイアット (37.794157 -122.396311)
 
     ![](images/marriott.jpg)
 
-## Step 2: Create the HotelRemoter Controller
+## ステップ 2: コントローラ HotelRemoter を作成する
 
-1. In the Developer Console, select **File** > **New** > **Apex Class**, specify **HotelRemoter** as the class name and click **OK**
+1. 開発者コンソール（Salesforce画面の右上で自分の名前をクリックし、ドロップダウンメニューから選択）で、**File** > **New** > **Apex Class** の順に選択します。クラス名に　**HotelRemoter**　と入力し、　**OK**　をクリックします。
 
-1. Implement the class as follows:
+1. 次のようにクラスを実装します:
 
     ```
     global with sharing class HotelRemoter {
@@ -62,17 +61,17 @@ In this module, you create a custom controller with a method that returns a list
     }
     ```
 
-1. Save the file  
+1. ファイルを保存します
 
-## Step 3: Create a Visualforce Page with Google Maps
+## ステップ 3: Googleマップを組み込んだVisualforceページを作成する
 
-1. In the Developer Console, select **File** > **New** > **Visualforce Page**, specify **HotelMap** as the page name and click **OK**
+1. 開発者コンソールで、 **File** > **New** > **Visualforce Page** の順に選択し、ページ名に **HotelMap** と入力し、 **OK** をクリックします
 
-1. Implement HotelMap as follows:
+1. 次のようにHotelMapを実装します:
 
     ```
     <apex:page sidebar="false" showheader="false">
-    
+
     <head>
     <style type="text/css">
       html { height: 100% }
@@ -82,7 +81,7 @@ In this module, you create a custom controller with a method that returns a list
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script>
     var map;
-    
+
     function initialize() {
         var mapOptions = {
             center: new google.maps.LatLng(37.784173, -122.401557),
@@ -90,31 +89,31 @@ In this module, you create a custom controller with a method that returns a list
         };
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     }
-    
+
     google.maps.event.addDomListener(window, 'load', initialize);
-    
+
     </script>
     </head>
     <body>
       <div id="map-canvas"/>
     </body>
-    
+
     </apex:page>
     ```
 
-1. Save the file
+1. ファイルを保存します
 
-1. Click the **Preview** button (upper left corner) to test the HotelMap page in the browser
+1. **Preview** ボタン（画面の左上）をクリックし、ブラウザでHotelMapページをテストします
 
-## Step 4: Display the Hotels on the Map
+## ステップ 4: マップ上にホテルを表示する
 
-1. Assign **HotelRemoter** as the controller for the **HotelMap** Visualforce page:
+1. 次のようにコードを更新し、HotelRemoterを、Visualforceページ **HotelMap** のコントローラとして割り当てます:
 
     ```
     <apex:page sidebar="false" showheader="false" controller="HotelRemoter">
     ```
 
-1. Define a function named loadHotels() implemented as follows (right after the initilize() function):
+1. loadHotels()関数を次のように定義します（initilize()関数の直後）:
 
     ```
     function loadHotels() {
@@ -137,7 +136,7 @@ In this module, you create a custom controller with a method that returns a list
     }
     ```
 
-1. Define the addMarker() function implemented as follows (right after the loadHotels() function):
+1. addMarker()関数を次のように定義します（loadHotels()関数の直後）:
 
     ```
     function addMarker(id, name, lat, lng) {
@@ -152,20 +151,22 @@ In this module, you create a custom controller with a method that returns a list
   	}
     ```
 
-1. Invoke loadHotels() as the last line of the **initialize()** function:
+1. 4.	loadHotels()を **initialize()** 関数の最後の行で呼び出します:
 
     ```
     loadHotels();
     ```
 
-1. Save the file
+1. ファイルを保存します
 
-1. Click the **Preview** button (upper left corner) to test the HotelMap page in the browser. You should now see markers on the map representing the hotels you entered in Step 1.
+1. **Preview** ボタン（画面の左上）をクリックし、ブラウザでHotelMapページをテストします。ステップ1で入力した
+ホテルの場所にマーカーが表示されることを確認します。
+
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-a-Controller-Extension.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Using-the-Salesforce1-Platform-APIs.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-a-Controller-Extension.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Using-the-Salesforce1-Platform-APIs.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

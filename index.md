@@ -2,51 +2,50 @@
 layout: home
 title: Salesforce 開発者 ワークショップ
 ---
-In this tutorial, you use the Salesforce Platform to build a conference management application that allows conference
-administrators to manage all the
-aspects of a conference: sessions, speakers, hotels, etc. You also create a simple consumer-facing application that allows conference attendees to view the conference schedule, and learn more about sessions and speakers.
+このチュートリアルでは、Salesforce Platformを使って、カンファレンス主催者が、カンファレンスに関連する情報 : セッション、講演者、ホテル等の情報を管理することのできるカンファレンス管理アプリケーションを作成します。またシンプルなカンファレンス参加者がスケジュールやセッション、スピーカを閲覧するためのコンシューマ向けサイトを作成します。
 
 ## 何を学ぶことができるか
 
-- Create Custom Objects
-- Use declarative features of the platform to create an Application, create Tabs, and optimize Page Layouts
-- Create Apex Classes
-- Use SOQL and DML to query, create, update and delete data
-- Create Triggers
-- Create Visualforce Pages
-- Create Controller Extensions and Custom Controllers
-- Use JavaScript in Visualforce Pages
-- Authenticate using OAuth
-- Access Salesforce data from JavaScript using JavaScript Remoting
-- Create a Custom Application using the REST APIs
-- Create Unit Tests
-- Create Batch Processes
+- カスタムオブジェクトの作成
+- プラットフォームの宣言的機能を使ってアプリケーション、タブを作成し、ページレイアウトを最適化する
+- Apex クラスの作成
+- SOQL 及び DML を使った、データのクエリ、作成、更新、削除
+- トリガの作成
+- Visualforceページの作成
+- コントローラ拡張及びカスタムコントローラの作成
+- Visualforce ページでのJavascriptの使用
+- OAuthを使った認証
+- SalesforceデータへJavaScript Remotingを使ったアクセス
+- REST APIを使ったカスタムアプリケーションの作成
+- ユニットテストの作成
+- バッチプロセスの作成
 
 ## 前提条件
 
-- To complete this workshop, all you need is a modern browser and a connection to the Internet
-- No prior knowledge of Salesforce is required
-- A working knowledge of Object-Oriented Programming is assumed
+- このワークショップを全て行うには、最新のブラウザとインターネット回線が必要です。
+- Salesforceへの事前の深い知識は不要です
+- オブジェクト志向プログラミング言語の経験があることを想定しています
 
 
-## Browser Requirements
+## ブラウザ要件
 
-The following browsers are supported when working with the Developer Console:
+以下のブラウザが開発者コンソールではサポートされています:
 
-  - Most recent version of Google Chrome
-  - Most recent version of Mozilla Firefox
-  - Most recent version of Safari
-  - Internet Explorer 9 or higher
+  - 最新バージョンのGoogle Chrome
+  - 最新バージョンのMozilla Firefox
+  - 最新バージョンのSafari
+  - Internet Explorer 9 以降
 
-## Issues
 
-- Please create an issue [here](https://github.com/ccoenraets/salesforce-developer-workshop/issues) if you run
-into any problem or if you have a suggestion to improve this workshop.
-- You can also use the Comments section at the bottom of each module to ask a question or report a problem.
+## 問題
+
+- もし問題やこのチュートリアルを改善するための提案がある場合には [こちら](https://github.com/salesforcedevelopersjapan/salesforce-developer-workshop/issues) に投稿してください。
+- または下にあるコメントセクションにて、質問や問題の報告を行うことも可能です。
+
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-a-Developer-Edition-Account.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-a-Developer-Edition-Account.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

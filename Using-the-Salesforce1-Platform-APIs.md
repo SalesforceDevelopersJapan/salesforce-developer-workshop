@@ -10,7 +10,7 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
 
 このモジュールの演習を行うには、Node.jsが必要です。Node.jsがお使いのシステムにインストールされていない場合、[こちら](http://nodejs.org/)からインストールできます。
 
-> This module is recommended but optional. If you are not interested in building custom applications (applications hosted outside your Salesforce instance), you can move to Module 11.
+> このモジュールは実施をお勧めしますがオプションです。もしあなたがAPIを使った外部のカスタムアプリケーション(Salesforceインスタンスの外にホストされたアプリケーション)開発に興味がない場合は, モジュール11へ移動して下さい。
 
 ## ステップ 1: 接続アプリケーションを作成する
 
@@ -34,51 +34,51 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
 1. 1.	[このファイル](https://github.com/ccoenraets/salesforce-developer-workshop/archive/master.zip)をダウンロードして解凍するか、[このリポジトリ](https://github.com/ccoenraets/salesforce-developer-workshop)からコピーを取得します。
 
 1. 2.	コードエディタ（各自、使い慣れたものを使用してください）で、 **client/index.html** 内のコードを確認します:
-    - It provides the basic markup to render a list of sessions as shown in the screenshot above.
-    - 	ratchet.cssが使われています。[Ratchet](http://goratchet.com/)は、モバイルアプリケーション用のスタイルを提供するシンプルなCSSツールキットです。
-    - It uses [ForceTK](https://github.com/developerforce/Force.com-JavaScript-REST-Toolkit), the Force.com JavaScript REST Toolkit, to integrate with Salesforce.
-    - You will code the logic of the application (OAuth login) and data access logic in js/app.js which is empty at this time.  
+    - これは上記のスクリーンショットの様な基本的なセッションのリストを表示するマークアップを提供します。
+    - ratchet.cssが使われています。[Ratchet](http://goratchet.com/)は、モバイルアプリケーション用のスタイルを提供するシンプルなCSSツールキットです。
+    - ここではSalesforceとの統合に [ForceTK](https://github.com/developerforce/Force.com-JavaScript-REST-Toolkit) というForce.com JavaScript REST Toolkitが使われています。
+    - 認証(OAuth login) とデータアクセスロジックをjs/app.js に実装していきます。現在空となっています。  
 
 1. 4.	コードエディタで、 **client/oauthcallback.html** 内のコードを確認します:
 
-    At the end of the OAuth workflow, the Salesforce authentication process loads the redirect URI you specified in your Connected App and passes the access token and other OAuth values (server instance, refresh token, etc.) in the query string. Your redirect URI page simply needs to parse the query string, extract the access token and the other OAuth values, and pass that information back to your application by invoking the oauthCallback() function you will code in Step 4.
+    OAuthワークフローの最後には、Salesforce 認証プロセスが接続アプリケーションに定義したリダイレクトURIをロードし、アクセストークﾝ及びその他のOAuth関連の値(サーバインスタンス, リフレッシュトークン, など) をクエリ文字列を使って渡します。 リダイレクトURIページは単純にクエリ文字列を解析し、アクセストークン及びその他のOAuthの値を展開し、それらの値の情報をステップ4で実装するoauthCallback()関数を呼び出す事によってアプリケーショｎへ返します。
 
-1. Using your favorite code editor, examine the code in **server.js**. server.js implements a small HTTP server that provides two features:
-    - Web server for static content. The document root for the web server is the client directory.
-    - Proxy for Salesforce REST requests. Because of the browser’s cross-origin restrictions, your JavaScript application hosted on your own server (or localhost) will not be able to make API calls directly to the *.salesforce.com domain. The solution is to proxy your API calls through your own server.
+1. 5.	コードエディタで、 **server.js** 内のコードを確認します。server.jsは、次の2つの機能を提供する小さなHTTPサーバを実装しています:
+    - 静的コンテンツ用のWebサーバ。Webサーバのドキュメントルートは、clientディレクトリです
+    - SalesforceのRESTリクエスト用のプロキシ。ブラウザでのクロスオリジンの制限により、お使いのサーバ（またはローカルホスト）がホストするJavaScriptアプリケーションから、*.salesforce.comドメインに対してAPIコールを直接実行することはできません。そこで、プロキシを介在させることによって、サーバからのAPIコールを実行します
 
-## Step 3: Start the Node.js server
+## ステップ 3: Node.jsサーバを起動する
 
 
-1. Open Terminal (Mac) or a Command prompt (Windows)
+1. ターミナル（Macの場合）、またはコマンドプロンプト（Windowsの場合）を起動します
 
-1. Navigate (cd) to the **salesforce-developer-workshop** (or salesforce-developer-workshop-master) directory
+1. salesforce-developer-workshop ディレクトリに移動（cd）します。
 
-1. Install the Node.js server dependencies:
+1. Node.jsサーバの依存関係をインストールします:
 
     ```
     npm install
     ```
 
-1. Start the server:  
+1. サーバを起動します:  
 
     ```
     node server
     ```
 
-1. Test the application. Open a browser and access the following URL:
+1. アプリケーションをテストします。ブラウザを開、以下のURLにアクセスします:
 
     ```
     http://localhost:3000
     ```
 
-    Since we didn't authenticate with Salesforce yet, all you should see at this point is an empty list of sessions.
+    Salesforceへの認証を行わない間、この段階ではセッションリストは空の状態になっています。
 
 ## ステップ 4: OAuthを使ったSalesforce認証を実装する
 
-1. Using your favorite code editor, open **app.js** in **salesforce-developer-workshop/client/js**
+1. コードエディタで **salesforce-developer-workshop/client/js**にある **app.js** を開きます。
 
-1. Declare the following variables:
+1. 以下の変数を宣言します:
 
     ```
     var apiVersion = 'v30.0',
@@ -89,13 +89,13 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
     client = new forcetk.Client(clientId, loginUrl, proxyURL);
     ```
 
-1. In **Setup** (back in Salesforce), click **Build** > **Create** > **Apps**. In the **Connected Apps** section, click **MyConference**, and copy the **Consumer Key** to your clipboard.
+1. Salesforceアプリケーションに戻り、**設定** で、 **ビルド** > **作成** > **アプリケーション** の順にクリックします。 **接続アプリケーション** セクションで、 **MyConference** をクリックし、コンシューマ鍵をクリップボードにコピーします。
 
     ![](images/consumer-key.jpg)
 
-1. In app.js, replace YOUR&#95;CONSUMER_KEY with the consumer key you copied to your clipboard
+1. app.jpで、「YOUR_CONSUMER_KEY」の部分を、クリップボードにコピーしたコンシューマ鍵で置き換えます。
 
-1. In app.js, declare a function named **login()** implemented as follows (right after the variable declarations):
+1. app.jsで、**login()** という名前の関数を以下の様に実装します(変数宣言のすぐ後):
 
     ```
     function login() {
@@ -106,7 +106,7 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
     }
     ```
 
-1. Declare a function named **oauthCallback()** implemented as follows (right after the login() function):
+1. **oauthCallback()** という名前の関数を以下の様に実装します (login() 関数のすぐ後):
 
     ```
     function oauthCallback(response) {
@@ -121,24 +121,24 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
     }
     ```
 
-    > oauthCallback() is called by the oauthcallback.html page at the end of the OAuth workflow (see oauthcallback.html in step 2 for details).
+    > oauthCallback() はoauthcallback.htmlページより
+    、 OAuthワークフローの最後に呼び出されます。(oauthcallback.htmlの詳細はステップ2に書いてあります)
 
-1. Invoke the login() function as the last line of the app.js file:
+1. login() 関数をapp.jsファイルの最後で呼び出します:
 
     ```
     login();
     ```
 
-1. Test the application
-  - Open a browser and access [http://localhost:3000](http://localhost:3000)
-  - Login with your Developer Edition credentials
-  - Open the browser console: you should see the **OAuth authentication succeeded** message
+1. アプリケーションをテストします
+  - ブラウザを開き、  [http://localhost:3000](http://localhost:3000) へアクセスします
+  - Developer Editionのログイン情報を使ってログインします。Salesforceでの認証に成功すると、**OAuth authentication succeeded** メッセージが表示されます。次のステップで、REST APIコールを実行してセッションのリストを表示させます
 
-  > It may take a few minutes for a Connected App to be available after you create it. If you get this message: **error=invalid_client_id&error_description=client%20identifier%20invalid**, wait a few minutes and try again.
+  > 接続アプリケーションは、作成後、利用可能になるまで数分程度かかることがあります。次のようなメッセージが表示された場合は、数分間待ってから再試行してください: **error=invalid_client_id&error_description=client%20identifier%20invalid**, wait a few minutes and try again.
 
 ## ステップ 5: REST APIを使用する
 
-1. In app.js, declare a function named **getSessions()** implemented as follows (right after the oauthCallback() function):
+1. 1.	client/js/app.jsで、次のようにgetSessions()関数を実装します(oauthCallback()関数のすぐ後):
 
     ```
     function getSessions() {
@@ -159,19 +159,19 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
     }
     ```
 
-1. Modify the oauthCallback() function to invoke getSessions() when the user has been successfully authenticated.
+1. oauthCallback() 関数を変更し、認証が成功したタイミングで getSessions() を呼び出すように変更します
 
     ```
     console.log('OAuth authentication succeeded');
     getSessions();
     ```
 
-1. Test the application
-  - Open a browser and access [http://localhost:3000](http://localhost:3000)
-  - Login with your Developer Edition credentials
-  - You should now see the list of sessions
+1. 3.	アプリケーションをテストします
+  - ブラウザを開き、  [http://localhost:3000](http://localhost:3000) へアクセスします
+  -　Developer Editionのログイン情報を使ってログインします
+  - 任意のセッションをクリックし、詳細を確認してみましょう
 
-> This is just the starting point for building a custom application written in JavaScript, authenticating with Salesforce using OAuth, and accessing Salesforce data using the REST APIs. If you are planning on building a real-life application based on this architecture, consider using a JavaScript framework such as [Backbone.js](http://backbonejs.org/) or [AngularJS](https://angularjs.org/) with [Ionic](http://ionicframework.com/).
+> 今回のモジュールでは、JavaScriptを使ったカスタムアプリケーションの開発、OAuthによるSalesforceでの認証、REST APIを介したSalesforceデータへのアクセス等に関する基本的な手順のみを取り上げました。このアーキテクチャにもとづいて実際のアプリケーションを開発する予定がある場合は、[Backbone.js](http://backbonejs.org/)、[AngularJS](https://angularjs.org/)ベースの[Ionic](http://ionicframework.com/)等のJavaScriptフレームワークの利用を検討してください。
 
 
 

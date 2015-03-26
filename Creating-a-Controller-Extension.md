@@ -9,7 +9,8 @@ title: モジュール 8&#58; コントローラ拡張機能の作成
 
 ## ステップ 1: コントローラ拡張機能を作成する
 
-In this step, you experiment with the mechanics of a controller extension. You create a simple controller extension that exposes an **increment()** method and a **counter** property. When you click the Increment button in the SpeakerForm page, the extension's increment() method increments the counter property whose new value is automatically displayed in the page. In the next step, you make SpeakerControllerExtension a lot more useful by adding code to support the upload of speaker pictures.
+このステップでは、シンプルなコントローラ拡張による **increment()** メソッド及び **counter** プロパティの
+追加を通してコントローラ拡張の仕組みについて学びます。Increment ボタンをSpeakerForm ページ上で押下すると、 拡張コントローラのincrement() メソッドが、カウンタプロパティをインクリメントされ、新しい値が画面に自動的に表示されます。次のステップでは、講演者の写真のアップロードをサポートするなどより実用的な SpeakerControllerExtension を作成します。
 
 1. 開発者コンソールで、 **File** > **New** > **ApexClass** の順にクリックし、クラス名に **SpeakerControllerExtension** と入力し、 **OK** をクリックします
 
@@ -43,13 +44,13 @@ In this step, you experiment with the mechanics of a controller extension. You c
     <apex:page standardController="Speaker__c" extensions="SpeakerControllerExtension">
     ```
 
-1. Add an Increment button (right after the Save button):
+1. Increment ボタンを追加します (保存ボタンのすぐ後):
 
     ```
     <apex:commandButton action="{!increment}" value="Increment"/>
     ```
 
-1. Display the counter (right after &lt;/apex:pageBlock>):
+1. counterを追加します (&lt;/apex:pageBlock>タグのすぐ後):
 
     ```
     {!counter}
@@ -92,16 +93,16 @@ In this step, you experiment with the mechanics of a controller extension. You c
 
 1. 開発者コンソールにて **SpeakerControllerExtension** を開きます。
 
-1. Remove the counter variable declaration, the counter variable initialization in the class constructor, and the increment() method definition
+1. counter変数の宣言、コンストラクタ内での初期化処理、そしてincrement()メソッドの宣言を削除します
 
-1. Declare the following variables (right before the **speaker** variable declaration):
+1. 以下の様に変数を宣言します (　**speaker**変数宣言のすぐ前):
 
     ```
     public blob picture { get; set; }
     public String errorMessage { get; set; }
     ```
 
-1. Declare a **save()** method implemented as follows to override the standard controller's default behavior (right after the constructor method):
+1. 標準コントローラのデフォルト挙動をオーバライドする形で、**save()** メソッドを以下の様に実装します (コンストラクタメソッドのすぐ後):
 
     ```
     public PageReference save() {

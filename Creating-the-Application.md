@@ -76,80 +76,80 @@ Salesforceのアプリケーションとはユーザが関連する機能に素�
 
 ## ステップ 4: セッションページレイアウトを最適化する
 
-In this step, you optimize the Session details screen: to allow the user to easily identify the speakers for a session, you add the appropriate fields to the Speaker list.  
+このステップでは、セッションの詳細画面を最適化します: ユーザがセッションの講演者を容易に特定できるように 適切な項目を講演者リストに追加します。  
 
 ![](images/session-layout.jpg)
 
-1. In **Setup** mode, select **Build** > **Create** > **Objects**
+1. **設定** 画面より、 **ビルド** > **作成** > **オブジェクト** を選択します。
 
-1. Click the **Session** link
+1. **セッション** のリンクをクリックします。
 
-1. In the **Page Layouts** section, click **Edit** next to Session Layout
+1. **ページレイアウト** セクションで、セッションレイアウトの横の **編集** をクリックします
 
-1. In the **Related Lists** section, click the wrench icon (Related list properties)
+1. **関連リスト** セクションで、レンチのアイコンをクリックします(関連リストのプロパティ)
 
-1. Add the following fields to the **Selected Fields**:
-   - Speaker: Speaker Number
-   - Speaker: First Name
-   - Speaker: Last Name
+1. 以下の項目を**選択済みの項目**へ追加します:
+   - 講演者: 講演者番号
+   - 講演者: 姓
+   - 講演者: 名
 
-1. Remove the following field from the **Selected Fields**:
-  - Session Speaker: Session Speaker Name
+1. 以下の項目を**選択済みの項目**から削除します:
+  - セッション_講演者: セッション_講演者番号
 
-1. Click **OK**
+1. **OK**　をクリックします。
 
-1. Click **Save** (upper left corner)
+1. **保存** をクリックします(左上端)
 
-## Step 5: Optimize the Speaker Page Layout
+## ステップ 5: 講演者ページレイアウトの最適化
 
-In this step, you optimize the Speaker details screen: to allow the user to easily identify the sessions for a speaker, you add the appropriate fields to the Session list.  
+このステップでは、セッションの詳細画面を最適化します: ユーザが講演者のセッションを容易に特定できるように 適切な項目をセッションリストに追加します。
 
 ![](images/speaker-layout.jpg)
 
-1. In **Setup** mode, select **Build** > **Create** > **Objects**
+1. **設定** 画面より、 **ビルド** > **作成** > **オブジェクト** を選択します。
 
-1. Click the **Speaker** link
+1. **講演者** のリンクをクリックします。
 
-1. In the **Page Layouts** section, click **Edit** next to Speaker Layout
+1. **ページレイアウト** セクションで、講演者レイアウトの横の **編集** をクリックします
 
-1. In the **Related Lists** section, click the wrench icon (Related list properties)
+1. **関連リスト** セクションで、レンチのアイコンをクリックします(関連リストのプロパティ)
 
-1. Add the following fields to the **Selected Fields**:
-  - Session: Session Name
-  - Session: Session Date
+1. 以下の項目を**選択済みの項目**へ追加します:
+  - セッション: セッショｎ名
+  - セッション: セッション日時
 
-1. Remove the following field from the **Selected Fields**:
-  - Session Speaker: Session Speaker Name
+1. 以下の項目を**選択済みの項目**から削除します:
+  - セッション_講演者: セッション_講演者番号
 
-1. Click **OK**
+1. **OK**　をクリックします。
 
-1. Click **Save** (upper left corner)
+1. **保存** をクリックします(左上端)
 
-## Step 6: Optimize the Speaker Lookup
+## ステップ 6: 講演者ルックアップを最適化する
 
-In this step, you optimize the Speaker lookup dialog to allow the user to easily identify speakers.  
+このステップでは, 講演者を特定しやすくするために講演者ルックアップダイアログを最適化します。
 
 ![](images/lookup.jpg)
 
-1. In **Setup** mode, select **Build** > **Create** > **Objects**
+1. **設定** 画面より、 **ビルド** > **作成** > **オブジェクト** を選択します。
 
-1. Click the **Speaker** link
+1. **講演者** のリンクをクリックします。
 
-1. Scroll down to the **Search Layouts** section, and click **Edit** next to **Lookup Dialogs**
+1. スクロールし **検索レイアウト** のセクションで、**ルックアップダイアログ** の横の **編集** をクリックします。
 
-1. Add **First Name** and **Last Name** to the **Selected Fields**
+1. **姓** と **名** を **選択済みの項目** へ追加します
 
-1. Click **Save**
+1. **保存** をクリックします。
 
 ## ステップ 7: アプリケーションをテストする
 
-1. Click the Sessions tab, select a session and make sure the speaker list shows the speaker number, first name, and last name
+1. セッショｎタブをクリックし、セッションを選択し、講演者リストにスピーカー番号、姓、名が表示されている事を確認します。
 
-1. Assign a new speaker to a session and make sure the speaker lookup dialog shows the speaker first name and last name
+1. 新しい講演者をセッションへ関連付けるのに、講演者ルックアップダイアログに講演者の姓及び名が表示されている事を確認します。
 
-1. Click the Speakers tab, select a speaker and make sure the session list shows the session name and date
+1. 講演者タブをクリックし、講演者を選択し、セッションリストにセッション名及び日時が表示されている事を確認します。
 
-> If the lists don't show the expected fields, you probably forgot to click the Save button in the Page Layout screen. Go back to steps 4 and 5, and make sure you click Save at the end.
+> もしリストが想定されている項目を表示しない場合、ページレイアウト画面で保存ボタンを押し忘れている可能性があります。ステップ 4 及び 5に戻り、保存ボタンを最後に押して下さい。
 
 
 
