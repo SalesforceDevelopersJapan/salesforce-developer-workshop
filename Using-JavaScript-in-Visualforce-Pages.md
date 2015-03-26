@@ -1,6 +1,6 @@
 ---
 layout: module
-title: VisualforceページでのJavaScriptの使用
+title: モジュール 9&#58; VisualforceページでのJavaScriptの使用
 ---
 このモジュールでは、カンファレンスのホテルのリストを返すメソッドを含んだカスタムコントローラを作成します。続いて、JavaScript Remotingでそのメソッドを呼び出すVisualforceページを作成し、Google Maps SDKを使ってマップにホテルを表示させます。
 

@@ -1,6 +1,6 @@
 ---
 layout: module
-title: Module 11&#58; ユニットテスト
+title: モジュール 11&#58; ユニットテスト
 ---
 このモジュールでは、モジュール6で作成したダブルブッキングを回避するRejectDoubleBookingトリガのテストを実行します。
 
