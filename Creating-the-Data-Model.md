@@ -1,156 +1,155 @@
 ---
 layout: module
-title: Module 2&#58; Creating the Data Model
+title: モジュール 2&#58; データモデルの作成
 ---
-In this module, you create the custom objects that make up the data model for the conference application.
+このモジュールでは,カンファレンスアプリケーションを作成するために、カスタムオブジェクトを作成します。
 
 ![](images/schema.jpg)
 
-## Step 1: Create the Conference Session Object
+## ステップ 1: カンファレンスセッションオブジェクトの作成
 
-1. Login into your Developer Edition account
+1. Developer Editionアカウントにログインします
 
-1. Click the **Setup** link (upper right corner)
+1. **セットアップ** リンクをクリックします (右上端)
 
     ![](images/setup.jpg)
 
-1. In the left navigation, select **Build** > **Create** > **Objects**
+1. 左ナビゲーションメニューより **ビルド** > **作成** > **オブジェクト** をクリックします
 
     ![](images/custom-object.jpg)
 
-1. Click **New Custom Object**, and define the Session object as follows (accept the default values for the properties that are not mentioned below):
-  - Label: **Session**
-  - Plural Label: **Sessions**
-  - Object Name: **Session**
-  - Record Name: **Session Name**
-  - Data Type: **Text**
+1. **新規カスタムオブジェクト** をクリックし、以下のように **セッション** オブジェクトを作成します。(下記に明記されずにデフォルトで入力される値はそのまま利用します):
+  - 表示ラベル: **セッション**
+  - オブジェクト名: **Session**
+  - レコード名: **セッション名**
+  - データ型: **テキスト**
 
     ![](images/session-object.jpg)
 
-1. Click **Save**
+1. **保存**をクリックします。
 
-1. In the **Custom Fields & Relationships** section, click **New**
+1. **カスタム項目 & リレーション** セクションで、**新規**をクリックします。
 
     ![](images/new-field.jpg)
 
-1. Create a **Session Date** field defined as follows:
-  - Data Type: **Date/Time**
-  - Field Label: **Session Date**
-  - Field Name: **Session_Date**
+1. **セッション日時** 項目を以下の様に作成します:
+  - データ型: **日付/時間**
+  - 項目の表示ラベル: **セッション日時**
+  - 項目名: **Session_Date**
 
     ![](images/session-field.jpg)
 
-    Click **Next**, **Next**, **Save & New**
+    **次へ**, **次へ**, **保存 & 新規** とクリックします。
 
-1. Create a **Description** field defined as follows:
-  - Data Type: **Text Area (Long)**
-  - Field Label: **Description**
-  - Field Name: **Description**
+1. **概要** 項目を以下の様に作成します:
+  - データ型: **ロングテキストエリア**
+  - 項目の表示ラベル: **概要**
+  - 項目名: **Description**
 
-    Click **Next**, **Next**, **Save & New**
+    **次へ**, **次へ**, **保存 & 新規** とクリックします。
 
-1. Create a **Level** field defined as follows:
-  - Data Type: **Picklist**
-  - Field Label: **Level**
-  - Values: **Beginner**, **Intermediate**, **Advanced** (specify each value on its own row)
-  - Field Name: **Level**
+1. **レベル** 項目を作成します:
+  - データ型: **選択リスト**
+  - 項目の表示ラベル: **レベル**
+  - 値: **初級**, **中級**, **上級** (それぞれの値を一行に記述して下さい)
+  - 項目名: **Level**
 
-    Click **Next**, **Next**, **Save**
+     **次へ**, **次へ**, **保存** とクリックします。
 
-## Step 2: Create the Speaker Object
+## ステップ 2: 講演者オブジェクトの作成
 
-1. In Setup mode, select **Build** > **Create** > **Objects**
+1. 設定画面より **ビルド** > **作成** > **オブジェクト** をクリックします
 
-1. Click **New Custom Object**, and define the Speaker object as follows (accept the default values for the properties that are not mentioned below):
-  - Label: **Speaker**
-  - Plural Label: **Speakers**
-  - Object Name: **Speaker**
-  - Record Name: **Speaker Number**
-  - Data Type: **Auto Number**
-  - Display Format: **SP-{00000}**
-  - Starting Number: **1**
+1. **新規カスタムオブジェクト**をクリックし、以下の様に **講演者** オブジェクトを作成します(下記に明記されずにデフォルトで入力される値はそのまま利用します):
+  - 表示ラベル: **講演者**
+  - オブジェクト名: **Speaker**
+  - レコード名: **講演者番号**
+  - データ型: **自動採番**
+  - 表示形式: **SP-{00000}**
+  - 開始番号: **1**
 
-1. Click **Save**
+1. **保存** をクリックします。
 
-1. In the **Custom Fields & Relationships** section, click **New**, and create a **First Name** field defined as follows:
-  - Data Type: **Text**
-  - Field Label: **First Name**
-  - Length: **30**
-  - Field Name: **First_Name**
+1. **カスタム項目 & リレーション** セクションで、**新規**をクリックし、 **名** 項目を以下の様に作成します:
+  - データ型: **テキスト**
+  - 項目の表示ラベル: **名**
+  - 文字数: **30**
+  - 項目名: **First_Name**
 
-    Click **Next**, **Next**, **Save & New**
+    **次へ**, **次へ**, **保存 & 新規** とクリックします。
 
-1. Create a **Last Name** field defined as follows:
-  - Data Type: **Text**
-  - Field Label: **Last Name**
-  - Length: **30**
-  - Field Name: **Last_Name**
+1. **姓** 項目を以下の様に作成します:
+  - データ型: **Text**
+  - 項目の表示ラベル: **Last Name**
+  - 文字数: **30**
+  - 項目名: **Last_Name**
 
-    Click **Next**, **Next**, **Save & New**
+    **次へ**, **次へ**, **保存 & 新規** とクリックします。
 
-1. Create an **Email** field defined as follows:
-  - Data Type: **Email**
-  - Field Label: **Email**
-  - Field Name: **Email**
+1. **Eメール** 項目を以下の様に作成します:
+  - データ型: **メール**
+  - 項目の表示ラベル: **Eメール**
+  - 項目名: **Email**
 
-    Click **Next**, **Next**, **Save & New**
+    **次へ**, **次へ**, **保存 & 新規** とクリックします。
 
-1. Create a **Bio** field defined as follows:
-  - Data Type: **Text Area (Long)**
-  - Field Label: **Bio**
-  - Field Name: **Bio**
+1. **経歴** 項目を以下の様に作成します:
+  - データ型: **ロングテキストエリア**
+  - 項目の表示ラベル: **経歴**
+  - 項目名: **Bio**
 
-    Click **Next**, **Next**, **Save**
+    **次へ**, **次へ**, **保存** とクリックします。
 
-## Step 3: Create the Session_Speaker Junction Object
+## ステップ 3: セッション_講演者 接続用のオブジェクトの作成
 
-The Session_Speaker object is used to model the many-to-many relationship between Session and Speaker: a session can have one or many speakers, and a speaker can have one or many sessions. This is similar to an associative table in a traditional relational database.
+セッション_講演者 オブジェクトは セッションと講演者を多対多のリレーションシップを持たせるためのオブジェクトです : セッションは一人以上の講演者を持つことができ、一方講演者も１つもしくは複数のセッションを受け持つことができます。これは従来のリレーショナルデータベースでの手法と似ています。
 
-1. In Setup mode, select **Build** > **Create** > **Objects**
+1. 設定画面より **ビルド** > **作成** > **オブジェクト** をクリックします
 
-1. Click **New Custom Object**, and define the **Session_Speaker** object as follows:
-  - Label: **Session Speaker**
-  - Plural Label: **Session Speakers**
-  - Object Name: **Session_Speaker**
-  - Record Name: **Session Speaker Number**
-  - Data Type: **Auto Number**
-  - Display Format: **SESP-{00000}**
-  - Starting Number: **1**
+1. **新規カスタムオブジェクト**をクリックし、以下の様に **セッション_講演者** オブジェクトを作成します(下記に明記されずにデフォルトで入力される値はそのまま利用します)::
+  - 表示ラベル: **セッション_講演者**
+  - オブジェクト名: **Session_Speaker**
+  - レコード名: **セッション_講演者番号**
+  - データ型: **自動採番**
+  - 表示形式: **SESP-{00000}**
+  - 開始番号: **1**
 
-1. Click **Save**
+1. **保存**をクリックします
 
-1. In the **Custom Fields & Relationships** section, click **New**, and create a **Session** field defined as follows:
-  - Data Type: **Master-Detail Relationship**
-  - Related To: **Session**
-  - Field Label: **Session**
-  - Field Name: **Session**
+1. **カスタム項目 & リレーション** セクションで、**新規**をクリックし、 **セッション** 項目を以下の様に作成します:
+  - データ型: **主従関係**
+  - 関連先: **セッション**
+  - 項目の表示ラベル: **セッション**
+  - 項目名: **Session**
+  - 子リレーション名: **Speakers**
 
-    Click **Next**, **Next**, **Next**, set the Related List Label to "**Speakers**" and click **Save & New**
+    **次へ**, **次へ**, **次へ**とクリックし、関連リストの表示ラベルに "**講演者**" を設定し **保存 & 新規** をクリックします
 
-1. Create a **Speaker** field defined as follows:
-  - Data Type: **Master-Detail Relationship**
-  - Related To: **Speaker**
-  - Field Label: **Speaker**
-  - Field Name: **Speaker**
+1.  **講演者** 項目を以下の様に作成します:
+  - データ型: **主従関係**
+  - 関連先: **講演者**
+  - 項目の表示ラベル: **講演者**
+  - 項目名: **Speaker**
+  - 子リレーション名: **Sessions**
 
-    Click **Next**, **Next**, **Next**, set the Related List Label to "**Sessions**" and click **Save**
+    **次へ**, **次へ**, **次へ**とクリックし、関連リストの表示ラベルに "**セッション**" を設定し **保存** をクリックします
 
-## Step 4: Examine the Data Model in Schema Builder
+## ステップ 4: データモデルをスキーマビルダで確認する
 
-1. In Setup mode, search for "**schema**" in the left navigation, and click **Schema Builder**
+1. 設定画面より"**スキーマ**" を左ナビゲーションより検索し、 **スキーマビルダー** をクリックします。
 
     ![](images/search-schema.jpg)
 
-1. Click **Clear All**
+1. **選択解除** をクリックします
 
-1. Check **Session**, **Speaker**, and **Session Speaker**
+1. **セッション**, **講演者**, 及び**セッション_講演者** をチェックします。
 
-1. Examine the Conference application data model. Rearrange the objects as needed.
+1. このカンファレンスアプリケーションのデータモデルを確認します。必要に応じて変更することも可能です。
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-a-Developer-Edition-Account.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Creating-the-Application.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-a-Developer-Edition-Account.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Creating-the-Application.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

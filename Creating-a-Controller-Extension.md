@@ -149,20 +149,20 @@ In this step, you experiment with the mechanics of a controller extension. You c
 
 ## ステップ 4: アプリケーションをテストする
 
-1. Click the Speakers tab
+1. 講演者タブをクリックします
 
-1. Click **New** to add a speaker
+1. 新規をクリックして講演者レコードを作成します
 
-1. Enter the speaker first name, last name and email
+1. スピーカーの名、姓、メールアドレスを入力します
 
-1. Click the **Choose File** button and select a jpg file on your file system
+1. **参照** ボタンをクリックしてファイルシステム上のjpgファイルを選択します
 
-1. Click the **Save** button: you should see the image on the speaker's details page
+1. **保存** ボタンをクリックして、レコードの詳細ページに写真が表示されることを確認します。
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-a-Visualforce-Page.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Using-JavaScript-in-Visualforce-Pages.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-a-Visualforce-Page.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Using-JavaScript-in-Visualforce-Pages.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

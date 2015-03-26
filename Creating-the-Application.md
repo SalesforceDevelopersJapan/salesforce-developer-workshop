@@ -1,80 +1,80 @@
 ---
 layout: module
-title: Module 3&#58; Creating the Application
+title: モジュール 3&#58; アプリケーションの作成
 ---
-In this module, you create Tabs to provide access to the Session and Speaker objects. You group these tabs together in an Application to make them easier to access. Finally, you optimize Page Layouts to show relevant information in the Speaker and Session lists.
+このモジュールでは、セッション及び講演者オブジェクトへアクセスするためのタブを作成します。さらにこれらのタブをアプリケーションとしてグループ化することによってアクセスしやすくします。最後にページレイアウトを調整し、講演者とセッションの関連が見えるようにします。
 
 ![](images/app.jpg)
 
-## Step 1: Creating Tabs
+## ステップ 1: タブの作成
 
-To create the Sessions tab:
+セッションタブの作成を行います:
 
-1. In **Setup** mode, select **Build** > **Create** > **Tabs**
+1. **設定** 画面より、**ビルド** > **作成** > **タブ** を選択します
 
-1. In the **Custom Object Tabs** section, click **New**
+1. **カスタムオブジェクトタブ** セクションの **新規** をクリックします。
 
-1. Select **Session** as the Object, click the magnifier icon next to Tab Style and select the **Books** icon
+1. オブジェクトに **セッション** を選択し、 タブスタイルの虫眼鏡アイコンより **本** アイコンを選択します。
 
-1. Click **Next**, **Next**
+1. **次へ**, **次へ** とクリックします。
 
-1. Uncheck the **Include Tab** checkbox to ensure the Sessions tab doesn't appear in any of the existing applications, and click **Save** (In step 2, we will add the Sessions tab to a new application).
+1. **タブを含める** チェックボックスのチェックを外して、セッションタブが既存のどのアプリケーションにも表示されないことを確認し、**保存** をクリックします。(ステップ 2 で、セッションタブを新しいアプリケーションへ追加します)
 
-To create the Speakers tab:
+講演者タブの作成を行います:
 
-1. In the **Custom Object Tabs** section, click **New**
+1. **設定** 画面より、**ビルド** > **作成** > **タブ** を選択します
 
-1. Select **Speaker** as the Object, click the magnifier icon next to Tab Style and select the **Presenter** icon
+1. オブジェクトに **講演者** を選択し、 タブスタイルの虫眼鏡アイコンより **本** アイコンを選択します。
 
-1. Click **Next**, **Next**
+1. **次へ**, **次へ** とクリックします。
 
-1. Uncheck the **Include Tab** checkbox to ensure the Speakers tab doesn't appear in any of the existing applications, and click **Save**
+1. **タブを含める** チェックボックスのチェックを外して、セッションタブが既存のどのアプリケーションにも表示されないことを確認し、**保存** をクリックします。
 
-## Step 2: Creating the App
+## ステップ 2: アプリケーションの作成
 
-A Salesforce App is a group of Tabs that makes it easy for users to access a set of related features.
+Salesforceのアプリケーションとはユーザが関連する機能に素早くアクセスできるようにするためにまとめられたタブのグループを指します。
 
-1. In **Setup** mode, select **Build** > **Create** > **Apps**
+1. **設定** 画面より、 **ビルド** > **作成** > **アプリケーション** を選択します。
 
-1. In the **Apps** section, click **New**
+1. **アプリケーション** セクションで **新規** をクリックします。
 
-1. Check **Custom app** and click **Next**
+1. **カスタムアプリケーション** を選択し、 **次へ** をクリックします。
 
-1. Enter **Conference** for both the App Label and App Name, and click **Next**
+1. **カンファレンス管理** をアプリケーションの表示ラベルへ、 **Conference** をアプリケーション名に入力し、 **次へ** をクリックします。
 
-1. Accept the default App Logo and click **Next**
+1. デフォルトのアプリケーションロゴのまま **次へ** をクリックします。
 
-1. Add the **Sessions** and **Speakers** tabs to the **Selected Tabs** and click **Next**
+1. **セッション** 及び **講演者** タブを **選択されたタブ** へ移動し、 **次へ** をクリックします。
 
-1. Check the **Visible** checkbox for **System Administrator** and click **Save**
+1. **システム管理者** の **参照可能** チェックボックスにチェックを付け **保存** をクリックします。
 
     ![](images/sysadmin.jpg)
 
-1. Select **Conference** in the App selector (upper right corner of the screen)
+1. **カンファレンス管理** をアプリケーションセレクタより選択します (画面右上隅)
 
     ![](images/conference-app.jpg)
 
-    > If the Conference App doesn't appear in the App Selector, you probably forgot to assign it to the System Administrator profile. In Setup, select Build > Create > App, click Edit next to Conference, check the System Administrator profile, and click Save.
+    > もしカンファレンス管理アプリケーショｎがアプリケーションセレクタに表示されない場合、おそらく設定画面でシステム管理者プロファイルへの権限付与を忘れています。設定画面より ビルド > 作成 > アプリケーション よりカンファレンス管理の横の編集をクリックして、システム管理者プロファイルの参照可能チェックを付け、保存をクリックします。
 
-## Step 3: Enter Sample Data
+## ステップ 3: サンプルデータの入力
 
-1. Click the **Speakers Tab**, click **New**, and add a few sample speakers
+1. **講演者**　タブをクリックし、**新規** より、いくつかのサンプルの講演者を入力します。
 
-1. Click the **Sessions Tab**, click **New**, and  add a few sample sessions
+1. **セッション** タブをクリックし、 **新規** ボタンより、幾つかサンプルのセッションを入力します。
 
-1. To assign speakers to a session:
-  - In the details view for a session, click **New Session Speaker**
-  - Click the magnifier icon next to the Speaker field, select a speaker in the Speaker lookup dialog and click **Save**
+1. 講演者をセッションへアサインします:
+  - セッションの詳細画面より、**新規セッション_講演者** をクリックします。
+  - 講演者の虫眼鏡アイコンより、講演者をポップアップダイアログより選択し、 **保存** をクリックします。
 
     ![](images/speaker-lookup.jpg)
-    
+
     ![](images/session-detail.jpg)
 
-    > Notice that the speaker lists in both the speaker lookup dialog and the session details page don't provide very informative data at this time. We will fix this in the next steps.
+    > ここで注意点として現時点での講演者リストや講演者ルックアップダイアログは、有益な情報を提供しない点に注意して下さい。これは次のステップにて修正します。
 
 
 
-## Step 4: Optimize the Session Page Layout
+## ステップ 4: セッションページレイアウトを最適化する
 
 In this step, you optimize the Session details screen: to allow the user to easily identify the speakers for a session, you add the appropriate fields to the Speaker list.  
 
@@ -141,7 +141,7 @@ In this step, you optimize the Speaker lookup dialog to allow the user to easily
 
 1. Click **Save**
 
-## Step 7: Test the Application
+## ステップ 7: アプリケーションをテストする
 
 1. Click the Sessions tab, select a session and make sure the speaker list shows the speaker number, first name, and last name
 
@@ -155,7 +155,7 @@ In this step, you optimize the Speaker lookup dialog to allow the user to easily
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-the-Data-Model.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Creating-an-Apex-Class.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-the-Data-Model.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Creating-an-Apex-Class.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

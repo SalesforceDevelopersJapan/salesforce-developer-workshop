@@ -1,14 +1,14 @@
 ---
 layout: module
-title: Module 11&#58; Testing
+title: Module 11&#58; アプリケーションをテストする
 ---
-In this module, you write tests for the RejectDoubleBooking trigger you created in module 6.
+このモジュールでは、モジュール6で作成したダブルブッキングを回避するRejectDoubleBookingトリガのテストを実行します。
 
-## Step 1: Create a Test Class
+## ステップ 1: テストクラスを作成する
 
-1. In the Developer Console, select **File** > **New** > **Apex Class**, specify **TestRejectDoubleBooking** as the class name and click **OK**
+1. 開発者コンソールで、 **File** > **New** > **Apex Class** の順にクリックし、クラス名に **TestRejectDoubleBooking** と入力し、 **OK** をクリックします。
 
-1. Make the class **private**, and add the **@isTest** class annotation:
+1. クラスをpublicから **private** に変更し、**@isTest** というアノテーションを追加します:
 
     ```
     @isTest
@@ -17,9 +17,9 @@ In this module, you write tests for the RejectDoubleBooking trigger you created 
     }
     ```
 
-## Step 2: Add a Test Method to Test Single Bookings
+## ステップ 2: 通常の予約へのテストを実行するテストメソッドを追加する
 
-1. Add a **TestSingleBooking()** method to the TestRejectDoubleBooking class to make sure the trigger does not prevent a valid speaker booking:
+1. TestRejectDoubleBookingクラスにTestSingleBooking()メソッドを追加します。これにより、RejectDoubleBookingトリガが、通常の予約（ダブルブッキングが起きていない予約）を妨げるものでないことを確認します。:
 
     ```
     static testmethod void TestSingleBooking() {
@@ -41,18 +41,18 @@ In this module, you write tests for the RejectDoubleBooking trigger you created 
     }
     ```
 
-1. Save the file
+1. ファイルを保存します
 
-1. Click **Run Test** in the upper right corner of the code editor
+1. ウィンドウの右上にある［Run Test］をクリックします
 
-1. Click the **Tests** tab at the bottom of the code editor, and examine the test results.
+1. ウィンドウの下部にある **Tests** タブをクリックし、テスト結果を確認します
 
     ![](images/test1.jpg)
 
 
-## Step 3: Add a Test Method to Test Double Bookings
+## ステップ 3: ダブルブッキングをテストするメソッドを追加する
 
-1. Add a **TestDoubleBooking()** method to the TestRejectDoubleBooking class to make sure trigger actually rejects double bookings:
+1. TestRejectDoubleBookingクラスにTestDoubleBooking()メソッドを追加します。これにより、RejectDoubleBookingトリガが、実際にダブルブッキングを却下することを確認します:
 
     ```
     static testmethod void TestDoubleBooking() {
@@ -80,11 +80,11 @@ In this module, you write tests for the RejectDoubleBooking trigger you created 
     }
     ```
 
-1. Save the file  
+1. ファイルを保存します
 
-1. Click **Run Test** in the upper right corner of the code editor
+1. ウィンドウの右上にある **Run Test** をクリックします
 
-1. Click the **Tests** tab at the bottom of the code editor, and examine the test results.
+1. ウィンドウの下部にある **Tests** タブをクリックし、テスト結果を確認します
 
     ![](images/test2.jpg)
 
@@ -92,7 +92,7 @@ In this module, you write tests for the RejectDoubleBooking trigger you created 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Using-the-Salesforce1-Platform-APIs.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Batch-and-Schedule.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Using-the-Salesforce1-Platform-APIs.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Batch-and-Schedule.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

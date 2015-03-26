@@ -1,26 +1,26 @@
 ---
 layout: module
-title: Module 7&#58; Creating a Visualforce Page
+title: モジュール 7&#58; Visualforceページの作成
 ---
-In this module, you create a Visualforce page to provide a custom user interface for creating and editing speakers.
+このモジュールでは、Speakerレコードの新規作成や編集を行うためのカスタムユーザインターフェースとなるVisualforceページを作成します。
 
-## Step 1: Create the SpeakerForm Visualforce Page
+## ステップ 1: Visualforceページ **SpeakerForm** を作成する
 
-1. In the **Developer Console**, select **File** > **New** > **Visualforce Page**, specify **SpeakerForm** as the page name and click **OK**
+1. 開発者コンソールで **File** > **New** > **Visualforce Page** の順にクリックし、ページ名に **SpeakerForm** と入力し、 **OK** をクリックします。
 
-1. ステップ 1:Visualforce ページ「SpeakerForm」を作成する:
+1. 2.	次のように入力し、SpeakerFormを実装します:
 
     ```
     <apex:page standardController="Speaker__c">
     <apex:form >
-        <apex:pageBlock title="Edit Speaker">
+        <apex:pageBlock title="講演者の編集">
             <apex:pageBlockSection columns="1">
                 <apex:inputField value="{!Speaker__c.First_Name__c}"/>
                 <apex:inputField value="{!Speaker__c.Last_Name__c}"/>
                 <apex:inputField value="{!Speaker__c.Email__c}"/>
             </apex:pageBlockSection>
             <apex:pageBlockButtons >
-                <apex:commandButton action="{!save}" value="Save"/>
+                <apex:commandButton action="{!save}" value="保存"/>
             </apex:pageBlockButtons>
         </apex:pageBlock>
     </apex:form>
@@ -36,38 +36,38 @@ In this module, you create a Visualforce page to provide a custom user interface
 
 ## ステップ 2:SpeakerForm をデフォルトのフォームに設定する
 
-このステップでは、**SpeakerForm**ページを、Speaker レコードの新規作成や編集に使用するデフォルトのフォームに設定します。:
+このステップでは、**SpeakerForm**ページを、講演者レコードの新規作成や編集に使用するデフォルトのフォームに設定します。:
 
-1. In **Setup**, select **Build** > **Create** > **Objects** and click the **Speaker** link
+1. **設定** メニューで **ビルド** > **作成** > **オブジェクト** の順に選択し、 **Speaker** リンクをクリックします
 
-1. Scroll down to the **Buttons, Links, and Actions** section, and click **Edit** next to **New**
+1. 下へスクロールして **ボタン、リンク、およびアクション** まで移動し、表示ラベル **新規** の左にある **編集** をクリックします
 
-1. Check Override With Visualforce Page, and select **SpeakerForm**
+1. **上書き手段** で **Visualforceページ** を選択し、**SpeakerForm** を選択します。
 
-1. Click **Save**
+1. **保存** をクリックします
 
-1. In the **Buttons, Links, and Actions** section, click **Edit** next to **Edit**
+1. **ボタン、リンク、およびアクション** セクションで、表示ラベル **編集** の左にある **編集** をクリックします
 
-1. In **Override With** select **Visualforce Page** and select **SpeakerForm**
+1. **上書き手段** で **Visualforceページ** を選択し、 **SpeakerForm** を選択します。
 
-1. Click **Save**
+1. **保存** をクリックします
 
-## Step 3: Test the Application
+## ステップ 3: アプリケーションをテストする
 
-1. Click the **Speakers** Tab
+1. **講演者**タブをクリックします
 
-2. Click **New** which should display your Visualforce page
+1. **新規** をクリックして、自分が作成したVisualforceページが表示されることを確認します
 
-3. Create a new Speaker and select **Save**
+1. 新しいSpeakerレコードを作成して **保存** を選択します。
 
-> At this stage, the Visualforce page doesn't provide any additional capability compared to the default speaker form. In
-the next module, you will enhance SpeakerForm to support the upload of the speaker's pictures.
+> この段階では、作成したVisualforceページには、元のSpeakerレコード用フォームを超える機能はありません。次のモジュールで、スピーカーの写真のアップロードをサポートできるよう、SpeakerFormを拡張します。
+
 
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-Triggers.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Creating-a-Controller-Extension.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-Triggers.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Creating-a-Controller-Extension.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

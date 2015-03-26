@@ -1,29 +1,31 @@
 ---
 layout: module
-title: Module 1&#58; Creating a Developer Edition Account
+title: モジュール 1&#58; Developer Editionアカウントの作成
 ---
-In this module, you create a Developer Edition Account that provides you with a full-featured but isolated Salesforce environment to perform the exercises in this workshop.
+このモジュールでは、Developer Editionアカウントを作成します。これにより、このワークショップの演習で、フル機能を備えたSalesforce組織を使えるようになります。
 
-> If you already signed up for a Developer Edition account, you can skip the instructions below and go directly to [Module 2](Creating-the-Data-Model.html).
+> Developer Editionアカウントのサインアップがすでに済んでいる場合は、以下の手順をスキップして [モジュール 2](Creating-the-Data-Model.html) に進んでください。
 
 
-## Steps
+## 手順
 
-1. Open a browser and access the following URL: [http://developer.salesforce.com/signup](http://developer.salesforce.com/signup)
+1. ブラウザを起動して次のURLにアクセスします : [http://developer.salesforce.com/signup](http://developer.salesforce.com/signup)
 
-2. Fill in the signup form:
-  - Enter your First Name and Last Name
-  - For **Email**, enter an email address you have access to at this time (you will need to open an activation email)
-  - For **Username**, specify a unique user name in the form of an email address. For example: **firsname.lastname@workshop.com** (It doesn't have to be an existing email address: the Username is not used to send you emails)
-  - Check the Master Subscription Agreement checkbox and click the **Sign Me Up** button
+2. サインアップフォームに入力します:
+  - **姓** と **名** を入力します
+  - **メール** には、現在利用しているメールアドレスを入力します（これが、アカウント有効化のためのメールを受け取るアドレスになります）
+  - **ユーザ名** には、一意のユーザ名をメールアドレス形式で指定します。たとえば、
+<自分の名前>@workshop.comのようになります（なお、ユーザ名には実際のメールアドレスを使用する必要はありません。このユーザ名がメール送信に使われることはありません）。
 
-3. Check your email. You will receive an activation email for your Developer Edition Account.
+  - マスターサブスクリプション契約のチェックボックスをオンにして、**サインアップ** ボタンをクリックします。
 
-4. Click the link in the activation email. Enter your new password information, and click **Save**.
+3. Developer Editionアカウントを有効化するためのメールが届いていることを確認します。
+
+4. 届いたメール内のリンクをクリックします。新しいパスワード情報を入力して **保存** をクリックします。
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="index.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Creating-the-Data-Model.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="index.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Creating-the-Data-Model.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

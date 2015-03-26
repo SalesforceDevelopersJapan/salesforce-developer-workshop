@@ -1,14 +1,14 @@
 ---
 layout: module
-title: Module 12&#58; Batch and Schedule
+title: Module 12&#58; 一括処理とスケジュール設定
 ---
-In this module, you create and execute a batch process to send reminder emails to the conference speakers.
+このモジュールでは、カンファレンスのスピーカーにリマインダーメールを送信するための一括処理を作成して、実行します。
 
-## Step 1: Create the Batch Class
+## ステップ 1: EmailManagerクラスを作成する
 
-1. In the Developer Console, select **File** > **New** > **Apex Class**, specify **SendReminderEmail** as the class name and click **OK**
+1. 開発者コンソールで、**File** > **New** > **Apex Class** の順にクリックします。クラス名に **SendReminderEmail** と入力し、 **OK** をクリックします。
 
-1. Make the class **global**, implement the **Batchable** interface, and define the three methods of the interface:
+1. クラスをglobalに変更してBatchableインターフェースを実装し、そのインターフェースで3つのメソッドを定義します。:
 
     ```
     global class SendReminderEmail implements Database.Batchable<sObject> {
@@ -28,7 +28,7 @@ In this module, you create and execute a batch process to send reminder emails t
     }
     ```
 
-1. Declare three instance variables to store the query, the email subject, and the email body:
+1. 3つのインスタンス変数を宣言します（それぞれ、クエリ、メールの件名、メールの本文を格納）:
 
     ```
     global String query;
@@ -36,7 +36,7 @@ In this module, you create and execute a batch process to send reminder emails t
     global String body;
     ```
 
-1. Define a **constructor** implemented as follows:
+1. **コンストラクタ** を次のように定義します:
 
     ```
     global SendReminderEmail(String query, String subject, String body) {
@@ -46,7 +46,7 @@ In this module, you create and execute a batch process to send reminder emails t
     }
     ```
 
-1. Implement the **start()** method as follows:
+1. **start()** メソッドを次のように実装します:
 
     ```
     global Database.QueryLocator start(Database.BatchableContext bc) {
@@ -54,7 +54,7 @@ In this module, you create and execute a batch process to send reminder emails t
     }
     ```
 
-1. Implement the **execute()** method as follows:
+1. **execute()** メソッドを次のように実装します:
 
     ```
     global void execute(Database.BatchableContext bc, List<Speaker__c> scope) {
@@ -64,16 +64,16 @@ In this module, you create and execute a batch process to send reminder emails t
     }
     ```
 
-1. Save the file.
+1. 7.	ファイルを保存します
 
 
-## Step 2: Run the Batch
+## ステップ 2: 一括処理を実行する
 
-1. Make sure you have assigned your own email address to one of the speakers
+1. 講演者レコードのいずれか1件に、自分のメールアドレスを割り当てておきます
 
-1. In the Developer Console, click **Debug** > **Open Execute Anonymous Window**
+1. 開発者コンソールで、 **Debug** > **Open Execute Anonymous Window** の順にクリックします
 
-1. Type the following Apex code:
+1. 次のApexコードを入力します:
 
     ```
     String q = 'SELECT First_Name__c, Last_Name__c, Email__c FROM Speaker__c WHERE Email__c != null';
@@ -81,14 +81,14 @@ In this module, you create and execute a batch process to send reminder emails t
     Database.executeBatch(batch);
     ```
 
-1. Click **Execute**
+1. **Execute** をクリックします
 
-1. Check your email
+1. メールを確認します
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Testing.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+<a href="Testing.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
 <a href="next.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

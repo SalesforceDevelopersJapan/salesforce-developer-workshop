@@ -3,7 +3,7 @@ layout: module
 title: Next Steps
 ---
 
-Congratulations on completing this tutorial!
+これでチュートリアルは完了しました。おめでとうございます!!
 
 
 Here are a few things you can do next:
@@ -14,7 +14,7 @@ Here are a few things you can do next:
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
-- Check out the [Salesforce Developer Workbooks](https://developer.salesforce.com/page/Force.com_workbook) to learn 
+- Check out the [Salesforce Developer Workbooks](https://developer.salesforce.com/page/Force.com_workbook) to learn
 more about specific topics
 
 
@@ -23,6 +23,6 @@ more about specific topics
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Batch-and-Schedule.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+<a href="Batch-and-Schedule.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
 </div>
 </div>

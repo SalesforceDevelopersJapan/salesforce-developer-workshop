@@ -1,18 +1,18 @@
 ---
 layout: module
-title: Module 4&#58; Creating an Apex Class
+title: モジュール 4&#58; Apexクラスの作成
 ---
-Apex is a strongly typed, object-oriented programming language that you use to execute code in your Saleforce instance. The Apex syntax is similar to Java and also includes built-in support for database operations. In this module, you create an EmailManager class that encapsulates the logic to send confirmation emails to the conference speakers.
+Apexは強く型付けされたオブジェクト指向のプログラミング言語であり、Saleforceインスタンスでコードを実行するために使用されます。Apexの構文はJavaに似ており、データベース処理をあらかじめサポートしています。このモジュールでは、カンファレンスのスピーカーに確認メールを送信するロジックを含んだEmailManagerクラスを作成します。
 
-## Step 1: Create the EmailManager class
+## ステップ 1: EmailManagerクラスを作成する
 
-1. In Salesforce, click your name in the upper right corner of the screen. In the dropdown menu, click **Developer Console**.
+1. 1.	Salesforce画面の右上で自分の名前をクリックし、ドロップダウンメニューで **開発者コンソール** をクリックします。
 
     ![](images/devconsole.jpg)
 
-1. In the Developer Console, click **File** > **New** > **Apex Class**. Specify **EmailManager** as the class name and click **OK**
+1. 開発者コンソールで、**File** > **New** > **Apex Class** の順にクリックします。クラス名に **EmailManager** と入力し、 **OK** をクリックします。
 
-2. Implement the class as follows:
+2. 3.	次のようにクラスを実装します:
 
     ```
     public class EmailManager {
@@ -29,61 +29,60 @@ Apex is a strongly typed, object-oriented programming language that you use to e
     }
     ```
 
-1. Click **File** > **Save** to save the file
+1. **File** > **Save** の順にクリックしてファイルを保存します。
 
-## Step 2: Send an Email
+## ステップ 2: メールを送信する
 
-In this module, you test the EmailManager class by sending an email from the developer console. Later in this workshop, you'll integrate the EmailManager class with other parts of the application to automate the process of sending confirmation emails.
+次に、開発者コンソールからメールを送信し、EmailManagerクラスをテストします。なお、このワークショップの後半では、このEmailManagerクラスをアプリケーションと連携させて確認メールの送信プロセスを自動化します。
 
-1. In the Developer Console, click **Debug** > **Open Execute Anonymous Window**
+1. 1.	開発者コンソールで、**Debug** > **Open Execute Anonymous Window** の順にクリックします。
 
-2. Type the following Apex code (provide your own email address):
+2. 2.	次のApexコードを入力します（「YOUR_EMAIL_ADDRESS」には、自分のメールアドレスを入力）。:
 
     ```
     String address = 'YOUR_EMAIL_ADDRESS';
-    String subject = 'Speaker Confirmation';
-    String body = 'Thank you for speaking at the conference.';
+    String subject = '講演者確認';
+    String body = 'カンファレンスでのご公演ありがとうございます。';
     EmailManager em = new EmailManager();
     em.sendMail(address, subject, body);
     ```
 
-3. Click the **Execute** button
+3. **Execute** ボタンをクリックします
 
-4. Check your email: you should have received the confirmation email
+4. 確認メールが届いていることを確認します
 
 
-## Step 3: Using a Static Method
+## ステップ 3: 静的メソッドを使用する
 
-Since EmailManager is a utility class that doesn't use instance-specific variables, you can make the sendMail() method 
-static:
+EmailManagerはインスタンス固有の変数を使わないユーティリティクラスであるため、sendMail()を静的メソッドにすることができます
 
-1. In the Developer Console, open the EmailManager class
+1. 開発者コンソールで、EmailManagerクラスを開きます
 
-1. To turn sendMail() into a static method, change its signature as follows (add the **static** keyword):
+1. 2.	sendMail()を静的メソッドに変更するには、次のように署名を変更します（staticというキーワードを追加）:
 
     ```
     public static void sendMail(String address, String subject, String body) {
     ```
 
-1. Save the file
+1. ファイルを保存します
 
-1. Go back to the **Execute Anonymous Window** (**Debug** > **Open Execute Anonymous Window**)
+1. **Execute Anonymous Window** に戻ります（ **Debug** > **Open Execute Anonymous Window** の順にクリック）。
 
-1. Modify the Apex code to invoke sendMail() using a static method call:
+1. Apexコードを次のように書き換え、静的メソッドの呼び出しでsendMail()が呼び出されるようにします:
 
     ```
     String address = 'YOUR_EMAIL_ADDRESS';
-    String subject = 'Speaker Confirmation';
-    String body = 'Thank you for speaking at the conference.';
+    String subject = '講演者確認';
+    String body = 'カンファレンスでのご公演ありがとうございます。';
     EmailManager.sendMail(address, subject, body);
     ```
 
-1. Click **Execute** and check your email
+1. **Execute** をクリックしてメールを確認します。
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Creating-the-Application.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Accessing-Data-using-SOQL-and-DML.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Creating-the-Application.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Accessing-Data-using-SOQL-and-DML.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

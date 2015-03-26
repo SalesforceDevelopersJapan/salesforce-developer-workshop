@@ -1,45 +1,45 @@
 ---
 layout: module
-title: Module 10&#58; Using the Salesforce1 Platform APIs
+title: モジュール 10&#58; Salesforce1 Platform APIの使用
 ---
-In this module, you create an application that runs outside your Salesforce instance: it uses OAuth to authenticate with Salesforce, and the REST APIs to access Salesforce data.
+このモジュールでは、Salesforceインスタンスの外部で実行されるアプリケーションを作成します。Salesforceでの認証にはOAuthを使い、REST APIによってSalesforceデータにアクセスするようにします。
 
 ![](images/api.jpg)
 
-## Requirement
+## 要件
 
-You need Node.js to perform the exercises in this module. If you don't already have Node.js installed on your system, you can install it [here](http://nodejs.org/).
+このモジュールの演習を行うには、Node.jsが必要です。Node.jsがお使いのシステムにインストールされていない場合、[こちら](http://nodejs.org/)からインストールできます。
 
 > This module is recommended but optional. If you are not interested in building custom applications (applications hosted outside your Salesforce instance), you can move to Module 11.
 
-## Step 1: Create a Connected App
+## ステップ 1: 接続アプリケーションを作成する
 
-1. In Setup, click **Build** > **Create** > **Apps**
+1. **設定** で、 **ビルド** > **作成** > **アプリケーション** の順にクリックします
 
-1. In the **Connected Apps** section, click **New**, and define the Connected App as follows:
-  - Connected App Name: MyConference
-  - API Name: MyConference
-  - Contact Email: enter your email address
-  - Enabled OAuth Settings: Checked
-  - Callback URL: http://localhost:3000/oauthcallback.html
-  - Selected OAuth Scopes: Full Access (full)
+1. **接続アプリケーション** セクションで **新規** をクリックして、次のように新しい接続アプリケーションを定義します:
+  - 接続アプリケーション名: MyConference
+  - API参照名: MyConference
+  - 取引先責任者 メール: 自身のメールアドレスを入力します
+  - OAuth設定の有効化: チェックする
+  - コールバックURL: http://localhost:3000/oauthcallback.html
+  - 選択したOAuth範囲: フルアクセス (full)
 
     ![](images/connected-app.jpg)
 
-1. Click **Save**.
+1. **保存** をクリックします
 
 
-## Step 2: Install the Supporting Files
+## ステップ 2: 関連ファイルをインストールする
 
-1. Download and unzip [this file](https://github.com/ccoenraets/salesforce-developer-workshop/archive/master.zip), or clone [this repository](https://github.com/ccoenraets/salesforce-developer-workshop)
+1. 1.	[このファイル](https://github.com/ccoenraets/salesforce-developer-workshop/archive/master.zip)をダウンロードして解凍するか、[このリポジトリ](https://github.com/ccoenraets/salesforce-developer-workshop)からコピーを取得します。
 
-1. Using your favorite code editor, examine the code in **client/index.html**:
+1. 2.	コードエディタ（各自、使い慣れたものを使用してください）で、 **client/index.html** 内のコードを確認します:
     - It provides the basic markup to render a list of sessions as shown in the screenshot above.
-    - It uses ratchet.css. [Ratchet](http://goratchet.com/) is a simple CSS toolkit that provides styles for mobile applications.
+    - 	ratchet.cssが使われています。[Ratchet](http://goratchet.com/)は、モバイルアプリケーション用のスタイルを提供するシンプルなCSSツールキットです。
     - It uses [ForceTK](https://github.com/developerforce/Force.com-JavaScript-REST-Toolkit), the Force.com JavaScript REST Toolkit, to integrate with Salesforce.
     - You will code the logic of the application (OAuth login) and data access logic in js/app.js which is empty at this time.  
 
-1. Using your favorite code editor, examine the code in **client/oauthcallback.html**:
+1. 4.	コードエディタで、 **client/oauthcallback.html** 内のコードを確認します:
 
     At the end of the OAuth workflow, the Salesforce authentication process loads the redirect URI you specified in your Connected App and passes the access token and other OAuth values (server instance, refresh token, etc.) in the query string. Your redirect URI page simply needs to parse the query string, extract the access token and the other OAuth values, and pass that information back to your application by invoking the oauthCallback() function you will code in Step 4.
 
@@ -74,7 +74,7 @@ You need Node.js to perform the exercises in this module. If you don't already h
 
     Since we didn't authenticate with Salesforce yet, all you should see at this point is an empty list of sessions.
 
-## Step 4: Authenticate with Salesforce using OAuth
+## ステップ 4: OAuthを使ったSalesforce認証を実装する
 
 1. Using your favorite code editor, open **app.js** in **salesforce-developer-workshop/client/js**
 
@@ -136,7 +136,7 @@ You need Node.js to perform the exercises in this module. If you don't already h
 
   > It may take a few minutes for a Connected App to be available after you create it. If you get this message: **error=invalid_client_id&error_description=client%20identifier%20invalid**, wait a few minutes and try again.
 
-## Step 5: Using the REST APIs
+## ステップ 5: REST APIを使用する
 
 1. In app.js, declare a function named **getSessions()** implemented as follows (right after the oauthCallback() function):
 
@@ -177,7 +177,7 @@ You need Node.js to perform the exercises in this module. If you don't already h
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Using-JavaScript-in-Visualforce-Pages.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Testing.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Using-JavaScript-in-Visualforce-Pages.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Testing.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>

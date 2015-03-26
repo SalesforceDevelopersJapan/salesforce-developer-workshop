@@ -1,26 +1,25 @@
 ---
 layout: module
-title: Module 6&#58; Creating Triggers
+title: モジュール 6&#58; トリガの作成
 ---
-In this module, you create a trigger that sends confirmation emails to speakers when they are assigned to a session.
-You create another trigger that rejects double bookings of speakers.
+このモジュールでは、講演者をセッションに割り当てた時点でその講演者に確認メールを送信するトリガを作成します。また、講演者のダブルブッキングを防ぐためのトリガも作成します。
 
-## Step 1: Create a Trigger that Sends Confirmation Emails
+## ステップ 1: 確認メールを送信するトリガを作成する
 
-In this step, you create a trigger that sends confirmation emails to speakers when they are assigned to a session.
+このステップでは、講演者をセッションに割り当てた時点でその講演者に確認メールを送信するトリガを作成します。
 
-1. In the Developer Console, click **File** > **New** > **Apex Trigger**
+1. 開発者コンソールで、**File** > **New** > **Apex Trigger** の順にクリックします
 
-1. Specify **SendConfirmationEmail** as the trigger name, **Session&#95;Speaker__c** as the sObject, and click **Submit**
+1. トリガ名に **SendConfirmationEmail** と入力し、sObjectには **Session_Speaker__c** を指定し、**Submit** をクリックします。
 
-1. Implement the trigger as follows:
+1. 次のようにトリガを実装します:
 
     ```
     trigger SendConfirmationEmail on Session_Speaker__c (after insert) {
 
         for(Session_Speaker__c newItem : trigger.new) {
 
-            // Retrieve session name and time + speaker name and email address
+            // セッション名、日時、スピーカー名、メールアドレスを取得
             Session_Speaker__c sessionSpeaker =
                 [SELECT Session__r.Name,
                         Session__r.Session_Date__c,
@@ -29,14 +28,14 @@ In this step, you create a trigger that sends confirmation emails to speakers wh
                      Speaker__r.Email__c
                  FROM Session_Speaker__c WHERE Id=:newItem.Id];
 
-            // Send confirmation email if we know the speaker's email address
+            // 講演者のEメールアドレスに入力がああれば、確認メールを送信する
             if (sessionSpeaker.Speaker__r.Email__c != null) {
                 String address = sessionSpeaker.Speaker__r.Email__c;
-                String subject = 'Speaker Confirmation';
-                String message = 'Dear ' + sessionSpeaker.Speaker__r.First_Name__c +
-                    ',\nYour session "' + sessionSpeaker.Session__r.Name + '" on ' +
-                    sessionSpeaker.Session__r.Session_Date__c + ' is confirmed.\n\n' +
-                    'Thanks for speaking at the conference!';
+                String subject = '講演者確認';
+                String message = sessionSpeaker.Speaker__r.Last_Name__c + ' 様' +
+                    ',\nあなたのセッション "' + sessionSpeaker.Session__r.Name + '" は ' +
+                    sessionSpeaker.Session__r.Session_Date__c + ' に予定されています。\n\n' +
+                    'カンファレンスでの公演ありがとうございます!!';
                 EmailManager.sendMail(address, subject, message);
             }
         }
@@ -44,41 +43,41 @@ In this step, you create a trigger that sends confirmation emails to speakers wh
     }
     ```
 
-    > In a real-life application, hardcoding the email message is not a recommended approach. Consider using [email templates](https://help.salesforce.com/HTViewHelpDoc?id=admin_emailtemplates.htm&language=en_US) instead.
+    > 実際に利用するアプリケーションでは、メールメッセージのハードコードはお勧めしません。代わりに[メールテンプレート](https://help.salesforce.com/HTViewHelpDoc?id=admin_emailtemplates.htm)を使うことを検討してください。
 
-1. Save the file. The trigger takes effect as soon as you save it.
+1. ファイルを保存します。トリガは保存と同時に有効になります。
 
-1. Test the trigger
-  - Create a speaker that has your own email address
-  - Assign that speaker to a session, and check your email: you should receive a speaker confirmation email
+1. トリガをテストします
+  - スピーカーのレコードを新規に作成し、そこに自分のメールアドレスを設定します
+  - そのスピーカーをセッションに割り当てて、スピーカーへの確認メールが届くことを確認します。
 
-  > Sending a confirmation email when a speaker is assigned to a session (in other words, when a Session&#95;Speaker__c record is created) can be accomplished without writing code by defining a [workflow rule](https://developer.salesforce.com/page/Workflow_Rules). The programmatic approach used in this workshop allows you to satisfy additional requirements. For example, sending a confirmation email "on demand", independently of a record being created or updated.
+  > 講演者をセッションに割り当てた時点（つまり、Session&#95;Speaker__cのレコードを作成したとき）で確認メールを送信する場合、[ワークフロールール](https://developer.salesforce.com/page/Workflow_Rules)を定義すれば、コードを記述せずに実行することもできます。しかし、このワークショップで扱うプログラム的な手法では、ワークフローとは異なり、さまざまな要件に対応することが可能です。たとえば、レコードの作成や更新とは関係なく、確認メールを「オンデマンド」で送信することなどができます。
 
 
-## Step 2: Create a Trigger that Rejects Double Bookings
+## ステップ 2: ダブルブッキングを回避するトリガを作成する
 
-1. In the Developer Console, click **File** > **New** > **Apex Trigger**
+1. 開発者コンソールで、**File** > **New** > **Apex Trigger** の順にクリックします
 
-1. Specify **RejectDoubleBooking** as the trigger name, **Session&#95;Speaker__c** as the sObject, and click **Submit**
+1. トリガ名に **RejectDoubleBooking** と入力し、sObjectには **Session_Speaker__c** を指定し、 **Submit** をクリックします
 
-1. Implement the trigger as follows:
+1. 次のようにトリガを実装します:
 
     ```
     trigger RejectDoubleBooking on Session_Speaker__c (before insert, before update) {
 
         for(Session_Speaker__c sessionSpeaker : trigger.new) {
 
-            // Retrieve session information including session date and time
+            // セッション情報（日時など）を取得
             Session__c session = [SELECT Id, Session_Date__c FROM Session__c
                                     WHERE Id=:sessionSpeaker.Session__c];
 
-            // Retrieve conflicts: other assignments for that speaker at the same time
+            // ダブルブッキングに関する情報（同じ時間帯の別のセッションに割り当てられていないか）を取得
             List<Session_Speaker__c> conflicts =
                 [SELECT Id FROM Session_Speaker__c
                     WHERE Speaker__c = :sessionSpeaker.Speaker__c
                     AND Session__r.Session_Date__c = :session.Session_Date__c];
 
-            // If conflicts exist, add an error (reject the database operation)
+            // ダブルブッキングが起きている場合、エラーを作成（データベース処理を却下）
             if(!conflicts.isEmpty()){
                 sessionSpeaker.addError('The speaker is already booked at that time');
             }
@@ -88,21 +87,21 @@ In this step, you create a trigger that sends confirmation emails to speakers wh
     }
     ```
 
-1. Save the file
+1. ファイルを保存します
 
-1. Test the trigger:
-  - Assign a speaker to a session scheduled at a time the speaker is available and make sure it still works
-  - Assign a speaker to a session scheduled at the same time as another session the speaker is already assigned to: you should see the error message
+1. 次の手順を実行し、トリガをテストします:
+  - スピーカーの予定が空いている時間帯のセッションに講演者を割り当て、問題ないことを確認します
+  - すでにスピーカーを割り当てているセッションと同じ時間帯に実施される別のセッションにスピーカーを割り当て、エラーメッセージが表示されることを確認します
 
   ![](images/doublebooking.jpg)
 
-  > RejectDoubleBooking is not sufficient to entirely prevent the double booking of speakers. For example, the user could change the date and time of a session after the facts in a way that creates a double booking for a speaker assigned to that session. You could create an additional trigger to take care of that situation.
+  > RejectDoubleBookingは、スピーカーのダブルブッキングを完全には回避できません。たとえば、ユーザがセッションの日時を後から変更した場合、該当するセッションに割り当てられているスピーカーのダブルブッキングが発生する可能性があります。こうした状況は、別のトリガを作成することによって回避します。
 
 
 
 <div class="row" style="margin-top:40px;">
 <div class="col-sm-12">
-<a href="Accessing-Data-using-SOQL-and-DML.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
-<a href="Creating-a-Visualforce-Page.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+<a href="Accessing-Data-using-SOQL-and-DML.html" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> 戻る</a>
+<a href="Creating-a-Visualforce-Page.html" class="btn btn-default pull-right">次へ <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>
