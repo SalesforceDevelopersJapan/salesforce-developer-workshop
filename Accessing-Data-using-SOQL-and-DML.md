@@ -2,7 +2,7 @@
 layout: module
 title: モジュール 5&#58; SOQL と DML を使用したデータへのアクセス
 ---
-「SOQL」とは、「Salesforce Object Query Language」の略です。これは SQL に似た言語で、Salesforce 内でのデータの取得に使われます。また、「DML」とは、「Data Manipulation Language」の略で、Salesforce の DML は、データの挿入、更新、削除に使われます。このモジュールでは、SOQL と DML を知っていただくため、開発者コンソールでまず使ってみます。次のモジュールでは、Apex クラスや Apex トリガで、これらを実際に使っていきます。
+**SOQL** とは、 **Salesforce Object Query Language** の略です。これは SQL に似た言語で、Salesforce 内でのデータの取得に使われます。また、**DML** とは、 **Data Manipulation Language** の略で、Salesforce の DML は、データの挿入、更新、削除に使われます。このモジュールでは、SOQL と DML を知っていただくため、開発者コンソールでまず使ってみます。次のモジュールでは、Apex クラスや Apex トリガで、これらを実際に使っていきます。
 
 ## ステップ 1: SOQL ステートメントを実行する
 
