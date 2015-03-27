@@ -6,7 +6,7 @@ Apexは強く型付けされたオブジェクト指向のプログラミング�
 
 ## ステップ 1: EmailManagerクラスを作成する
 
-1. 1.	Salesforce画面の右上で自分の名前をクリックし、ドロップダウンメニューで **開発者コンソール** をクリックします。
+1. Salesforce画面の右上で自分の名前をクリックし、ドロップダウンメニューで **開発者コンソール** をクリックします。
 
     ![](images/devconsole.jpg)
 
@@ -35,9 +35,9 @@ Apexは強く型付けされたオブジェクト指向のプログラミング�
 
 次に、開発者コンソールからメールを送信し、EmailManagerクラスをテストします。なお、このワークショップの後半では、このEmailManagerクラスをアプリケーションと連携させて確認メールの送信プロセスを自動化します。
 
-1. 1.	開発者コンソールで、**Debug** > **Open Execute Anonymous Window** の順にクリックします。
+1. 開発者コンソールで、**Debug** > **Open Execute Anonymous Window** の順にクリックします。
 
-2. 2.	次のApexコードを入力します（「YOUR_EMAIL_ADDRESS」には、自分のメールアドレスを入力）。:
+2. 次のApexコードを入力します（「YOUR_EMAIL_ADDRESS」には、自分のメールアドレスを入力）。:
 
     ```
     String address = 'YOUR_EMAIL_ADDRESS';
@@ -58,7 +58,7 @@ EmailManagerはインスタンス固有の変数を使わないユーティリ�
 
 1. 開発者コンソールで、EmailManagerクラスを開きます
 
-1. 2.	sendMail()を静的メソッドに変更するには、次のように署名を変更します（staticというキーワードを追加）:
+1. sendMail()を静的メソッドに変更するには、次のように署名を変更します（staticというキーワードを追加）:
 
     ```
     public static void sendMail(String address, String subject, String body) {
