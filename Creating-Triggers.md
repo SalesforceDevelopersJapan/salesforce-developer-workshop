@@ -10,7 +10,7 @@ title: モジュール 6&#58; トリガの作成
 
 1. 開発者コンソールで、**File** > **New** > **Apex Trigger** の順にクリックします
 
-1. トリガ名に **SendConfirmationEmail** と入力し、sObjectには **Session_Speaker__c** を指定し、**Submit** をクリックします。
+1. トリガ名に **SendConfirmationEmail** と入力し、sObjectには **Session&#95;Speaker__c** を指定し、**Submit** をクリックします。
 
 1. 次のようにトリガを実装します:
 
@@ -58,7 +58,7 @@ title: モジュール 6&#58; トリガの作成
 
 1. 開発者コンソールで、**File** > **New** > **Apex Trigger** の順にクリックします
 
-1. トリガ名に **RejectDoubleBooking** と入力し、sObjectには **Session_Speaker__c** を指定し、 **Submit** をクリックします
+1. トリガ名に **RejectDoubleBooking** と入力し、sObjectには **Session&#95;Speaker__c** を指定し、 **Submit** をクリックします
 
 1. 次のようにトリガを実装します:
 
