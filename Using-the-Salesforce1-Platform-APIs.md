@@ -31,7 +31,7 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
 
 ## ステップ 2: 関連ファイルをインストールする
 
-1. このファイル](https://github.com/salesforcedevelopersjapan/salesforce-developer-workshop/archive/master.zip)をダウンロードして解凍するか、[このリポジトリ](https://github.com/salesforcedevelopersjapan/salesforce-developer-workshop)からコピーを取得します。
+1. [このファイル](https://github.com/salesforcedevelopersjapan/salesforce-developer-workshop/archive/master.zip)をダウンロードして解凍するか、[このリポジトリ](https://github.com/salesforcedevelopersjapan/salesforce-developer-workshop)からコピーを取得します。
 
 1. コードエディタ（各自、使い慣れたものを使用してください）で、 **client/index.html** 内のコードを確認します:
     - これは上記のスクリーンショットの様な基本的なセッションのリストを表示するマークアップを提供します。
@@ -132,7 +132,7 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
   - ブラウザを開き、  [http://localhost:3000](http://localhost:3000) へアクセスします
   - Developer Editionのログイン情報を使ってログインします。Salesforceでの認証に成功すると、**OAuth authentication succeeded** メッセージが表示されます。次のステップで、REST APIコールを実行してセッションのリストを表示させます
 
-  > 接続アプリケーションは、作成後、利用可能になるまで数分程度かかることがあります。次のようなメッセージが表示された場合は、数分間待ってから再試行してください: **error=invalid_client_id&error_description=client%20identifier%20invalid**, wait a few minutes and try again.
+  > 接続アプリケーションは、作成後、利用可能になるまで数分程度かかることがあります。次のようなメッセージが表示された場合は、数分間待ってから再試行してください: **error=invalid_client_id&error_description=client%20identifier%20invalid**
 
 ## ステップ 5: REST APIを使用する
 
