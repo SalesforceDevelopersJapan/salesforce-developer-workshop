@@ -77,7 +77,7 @@ title: モジュール 12&#58; 一括処理とスケジュール設定
 
     ```
     String q = 'SELECT First_Name__c, Last_Name__c, Email__c FROM Speaker__c WHERE Email__c != null';
-    SendReminderEmail batch = new SendReminderEmail(q, 'Final Reminder', 'The conference starts next Monday');
+    SendReminderEmail batch = new SendReminderEmail(q, '最終確認', 'カンファレンスは来週月曜から開催です!!');
     Database.executeBatch(batch);
     ```
 
