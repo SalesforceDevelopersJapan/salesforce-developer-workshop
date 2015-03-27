@@ -15,8 +15,8 @@ title: モジュール 7&#58; Visualforceページの作成
     <apex:form >
         <apex:pageBlock title="講演者の編集">
             <apex:pageBlockSection columns="1">
-                <apex:inputField value="{!Speaker__c.First_Name__c}"/>
                 <apex:inputField value="{!Speaker__c.Last_Name__c}"/>
+                <apex:inputField value="{!Speaker__c.First_Name__c}"/>
                 <apex:inputField value="{!Speaker__c.Email__c}"/>
             </apex:pageBlockSection>
             <apex:pageBlockButtons >
@@ -34,11 +34,11 @@ title: モジュール 7&#58; Visualforceページの作成
   - ブラウザで、インスタンスのドメイン名に/apex/SpeakerForm を追加し、Visualforce ページに直接アク セスします。たとえば、「[https://na17.salesforce.com/apex/SpeakerForm](https://na17.salesforce.com/apex/SpeakerForm)」のように指定します (「/apex/SpeakerForm」の前に、自分の Salesforce 組織のドメイン名を指定)
 
 
-## ステップ 2:SpeakerForm をデフォルトのフォームに設定する
+## ステップ 2: SpeakerForm をデフォルトのフォームに設定する
 
 このステップでは、**SpeakerForm**ページを、講演者レコードの新規作成や編集に使用するデフォルトのフォームに設定します。:
 
-1. **設定** メニューで **ビルド** > **作成** > **オブジェクト** の順に選択し、 **Speaker** リンクをクリックします
+1. **設定** メニューで **ビルド** > **作成** > **オブジェクト** の順に選択し、 **講演者** リンクをクリックします
 
 1. 下へスクロールして **ボタン、リンク、およびアクション** まで移動し、表示ラベル **新規** の左にある **編集** をクリックします
 
@@ -58,7 +58,7 @@ title: モジュール 7&#58; Visualforceページの作成
 
 1. **新規** をクリックして、自分が作成したVisualforceページが表示されることを確認します
 
-1. 新しいSpeakerレコードを作成して **保存** を選択します。
+1. 新しい講演者レコードを作成して **保存** を選択します。
 
 > この段階では、作成したVisualforceページには、元のSpeakerレコード用フォームを超える機能はありません。次のモジュールで、スピーカーの写真のアップロードをサポートできるよう、SpeakerFormを拡張します。
 

@@ -31,19 +31,19 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
 
 ## ステップ 2: 関連ファイルをインストールする
 
-1. 1.	[このファイル](https://github.com/ccoenraets/salesforce-developer-workshop/archive/master.zip)をダウンロードして解凍するか、[このリポジトリ](https://github.com/ccoenraets/salesforce-developer-workshop)からコピーを取得します。
+1. このファイル](https://github.com/salesforcedevelopersjapan/salesforce-developer-workshop/archive/master.zip)をダウンロードして解凍するか、[このリポジトリ](https://github.com/salesforcedevelopersjapan/salesforce-developer-workshop)からコピーを取得します。
 
-1. 2.	コードエディタ（各自、使い慣れたものを使用してください）で、 **client/index.html** 内のコードを確認します:
+1. コードエディタ（各自、使い慣れたものを使用してください）で、 **client/index.html** 内のコードを確認します:
     - これは上記のスクリーンショットの様な基本的なセッションのリストを表示するマークアップを提供します。
     - ratchet.cssが使われています。[Ratchet](http://goratchet.com/)は、モバイルアプリケーション用のスタイルを提供するシンプルなCSSツールキットです。
     - ここではSalesforceとの統合に [ForceTK](https://github.com/developerforce/Force.com-JavaScript-REST-Toolkit) というForce.com JavaScript REST Toolkitが使われています。
     - 認証(OAuth login) とデータアクセスロジックをjs/app.js に実装していきます。現在空となっています。  
 
-1. 4.	コードエディタで、 **client/oauthcallback.html** 内のコードを確認します:
+1. コードエディタで、 **client/oauthcallback.html** 内のコードを確認します:
 
     OAuthワークフローの最後には、Salesforce 認証プロセスが接続アプリケーションに定義したリダイレクトURIをロードし、アクセストークﾝ及びその他のOAuth関連の値(サーバインスタンス, リフレッシュトークン, など) をクエリ文字列を使って渡します。 リダイレクトURIページは単純にクエリ文字列を解析し、アクセストークン及びその他のOAuthの値を展開し、それらの値の情報をステップ4で実装するoauthCallback()関数を呼び出す事によってアプリケーショｎへ返します。
 
-1. 5.	コードエディタで、 **server.js** 内のコードを確認します。server.jsは、次の2つの機能を提供する小さなHTTPサーバを実装しています:
+1. コードエディタで、 **server.js** 内のコードを確認します。server.jsは、次の2つの機能を提供する小さなHTTPサーバを実装しています:
     - 静的コンテンツ用のWebサーバ。Webサーバのドキュメントルートは、clientディレクトリです
     - SalesforceのRESTリクエスト用のプロキシ。ブラウザでのクロスオリジンの制限により、お使いのサーバ（またはローカルホスト）がホストするJavaScriptアプリケーションから、*.salesforce.comドメインに対してAPIコールを直接実行することはできません。そこで、プロキシを介在させることによって、サーバからのAPIコールを実行します
 
@@ -99,9 +99,7 @@ title: モジュール 10&#58; Salesforce1 Platform APIの使用
 
     ```
     function login() {
-        var url = loginUrl + 'services/oauth2/authorize?display=popup&response_type=token'
-                    + '&client_id=' + encodeURIComponent(clientId)
-                    + '&redirect_uri=' + encodeURIComponent(redirectURI);
+        var url = loginUrl + 'services/oauth2/authorize?display=popup&response_type=token' + '&client_id=' + encodeURIComponent(clientId) + '&redirect_uri=' + encodeURIComponent(redirectURI);
         window.open(url);
     }
     ```
