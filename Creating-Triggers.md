@@ -79,7 +79,7 @@ title: モジュール 6&#58; トリガの作成
 
             // ダブルブッキングが起きている場合、エラーを作成（データベース処理を却下）
             if(!conflicts.isEmpty()){
-                sessionSpeaker.addError('The speaker is already booked at that time');
+                sessionSpeaker.addError('この講演者はすでにこの時間別のセッションにアサインされています');
             }
 
         }
