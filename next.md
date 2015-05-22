@@ -14,7 +14,7 @@ title: Next Steps
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
-- [Salesforce 開発者 Workbooks](https://developer.salesforce.com/page/Force.com_workbook) をチェックして、特定のトピックについてより詳しく学びます。
+- [Salesforce 開発者 ワークブック](https://developer.salesforce.com/page/JP:Force.com_workbook) をチェックして、特定のトピックについてより詳しく学びます。
 
 
 -  [developer.salesforce.com](https://developer.salesforce.com) にはより最新の情報が随時掲載されていきます。
