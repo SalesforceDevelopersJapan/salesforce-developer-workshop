@@ -37,9 +37,10 @@ title: モジュール 9&#58; VisualforceページでのJavaScriptの使用
 
 6. **Hotel** タブに移動し、ホテルのレコードを何件か入力します。その際、次のように、緯度（Latitude）と
 経度（Longitude）の情報も指定します:
-  - マリオットホテル(37.785143 -122.403405)
-  - ヒルトンユニオンスクエア (37.786164 -122.410137)
-  - ハイアット (37.794157 -122.396311)
+  - マンダリンオリエンタル(35.686506 139.772876)
+  - ヒルトンユニオンスクエア (35.672562 139.758542)
+  - グランドハイアット東京 (35.659941 139.728587)
+  - ザ・ペニンシュラ東京 (35.674933 139.760688)
 
     ![](images/marriott.jpg)
 
@@ -84,7 +85,7 @@ title: モジュール 9&#58; VisualforceページでのJavaScriptの使用
 
     function initialize() {
         var mapOptions = {
-            center: new google.maps.LatLng(37.784173, -122.401557),
+            center: new google.maps.LatLng(35.6754208, 139.7626623),
             zoom: 15
         };
         map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
